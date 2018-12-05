@@ -1,0 +1,32 @@
+{
+   "scripts": {
+      "build": "webpack",
+      "dev-server": "webpack-dev-server"
+   },
+   "name": "appluo",
+   "version": "1.0.0",
+   "description": "Set up and track your cleaning plan",
+   "main": "app.js",
+   "author": "Krzysztof Mianowski",
+   "license": "ISC",
+   "dependencies": {
+      "babel-cli": "^6.26.0",
+      "babel-core": "^6.26.3",
+      "babel-loader": "7",
+      "babel-plugin-transform-class-properties": "^6.24.1",
+      "babel-plugin-transform-object-rest-spread": "^6.26.0",
+      "babel-preset-env": "1.5.2",
+      "babel-preset-react": "6.24.1",
+      "react": "^16.6.3",
+      "react-dom": "^16.6.3",
+      "react-redux": "^5.1.1",
+      "react-router-dom": "^4.3.1",
+      "redux": "^4.0.1",
+      "uuid": "^3.3.2",
+      "webpack": "^4.26.1",
+      "webpack-dev-server": "^3.1.10"
+   },
+   "devDependencies": {
+      "webpack-cli": "^3.1.2"
+   }
+}
