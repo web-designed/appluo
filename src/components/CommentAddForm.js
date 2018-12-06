@@ -20,8 +20,8 @@ const CommentAddForm = ({ dispatch, currentEventId }) => {
       <div>
          <h3>Add comment</h3>
          <form onSubmit={handleSubmitComment}>
-            <textarea name="commentBody"></textarea>
-            <button>Submit</button>
+            <textarea name="commentBody"></textarea><br/>
+            <button>Add Comment</button>
          </form>
       </div>
    )
