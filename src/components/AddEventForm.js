@@ -2,66 +2,111 @@ import React from 'react'
 import { connect } from 'react-redux'
 import uuid from 'uuid'
 import { addEvent } from '../actions/events'
+import moment from 'moment'
+import 'react-dates/initialize'
+import { SingleDatePicker } from 'react-dates'
+import 'react-dates/lib/css/_datepicker.css'
 
 class AddEventForm extends React.Component {
 
    state = {
-      error: undefined
+      date: moment(),
+      focused: false,
+      note:'',
+      place:'bad',
+      error: '',
+      cleaner: 'chris',
+   }
+
+   onCleanerChange = (e) => {
+      const cleaner = e.target.value
+      this.setState(() => ({ cleaner }))
+   }
+
+   onPlaceChange = (e) => {
+      const place = e.target.value
+      this.setState(() => ({ place }))
+   }
+
+   onNoteChange = (e) => {
+      const note = e.target.value
+      this.setState(() => ({ note }))
+   }
+
+   onDateChange = (date) => {
+      this.setState(() => ({ date }))
+   }
+
+   onFocusChange = ({focused}) => {
+      this.setState(() => ({focused}))
    }
 
    handleSubmit = (e) => {
+
       e.preventDefault()
       
       const event = {
-         cleanedAt: 0,
-         createdAt: 0,
-         cleaner: e.target.elements.cleaner.value,
-         place: e.target.elements.place.value,
+         cleanedAt: this.state.date.valueOf(),
+         createdAt: moment().valueOf(),
+         cleaner: this.state.cleaner,
+         place: this.state.place,
          id: uuid(),
-         note: e.target.elements.note.value,
-         date: e.target.elements.date.value
+         note: this.state.note,
+         date: this.state.note
       }
-
       this.props.dispatch(addEvent(event))
-
-      // const error = this.props.handleAddEvent(event)
-      // this.setState(() => {
-      //    return { error }
-      // })
    }
 
    render(){
+      console.log(this)
       return(
          <div>
             <form onSubmit={(e) => {this.handleSubmit(e)}}>
                <p>
                   <label htmlFor="name">Name</label>
-                  <select name="cleaner">
+                  <select 
+                     name="cleaner" 
+                     onChange={this.onCleanerChange}
+                     value={this.state.cleaner}
+                  >
                      {
                         this.props.settings.cleaners.map((cleaner) => {
-                           return <option key={cleaner}>{cleaner}</option>
+                           return <option value={cleaner.toLowerCase()} key={cleaner}>{cleaner}</option>
                         })
                      }
                   </select>
                </p>
                <p>
                   <label htmlFor="place">Wo</label>
-                  <select name="place">
+                  <select 
+                     name="place" 
+                     onChange={this.onPlaceChange}
+                     value={this.state.place}
+                  >
                      {
                         this.props.settings.places.map((place) => {
-                           return <option key={place}>{place}</option>
+                           return <option value={place.toLowerCase()} key={place}>{place}</option>
                         })
                      }
                   </select>
                </p>
                <p>
-                  <label htmlFor="date">Datum</label>
-                  <input type="text" name="date"/>
-                  {this.state.error && <span>{this.state.error}</span>}
+                  <SingleDatePicker 
+                     date={this.state.date}
+                     onDateChange={this.onDateChange}
+                     focused={this.state.focused}
+                     onFocusChange={this.onFocusChange}
+                     numberOfMonths={1}
+                     isOutsideRange={() => false}
+                  />
                </p>
                <p>
                   <label htmlFor="note">Note</label>
-                  <textarea name="note" placeholder="zB: Alles sauber gemacht"></textarea>
+                  <textarea 
+                     name="note" 
+                     placeholder="zB: Alles sauber gemacht"
+                     onChange={this.onNoteChange}
+                  ></textarea>
                </p>
                <p><button>Submit</button></p>
             </form>
