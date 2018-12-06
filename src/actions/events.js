@@ -14,11 +14,11 @@ const addEvent = (
       createdAt = moment().valueOf(),
       place = '',
       comments = [],
-      id
+      id = uuid()
    } = {}) => ({
       type:'ADD_EVENT',
       event: {
-         id: id,
+         id,
          note,
          cleaner,
          place,

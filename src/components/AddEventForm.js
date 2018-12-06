@@ -50,15 +50,14 @@ class AddEventForm extends React.Component {
          createdAt: moment().valueOf(),
          cleaner: this.state.cleaner,
          place: this.state.place,
-         id: uuid(),
          note: this.state.note,
          date: this.state.note
       }
       this.props.dispatch(addEvent(event))
+      this.props.history.push('/')
    }
 
    render(){
-      console.log(this)
       return(
          <div>
             <form onSubmit={(e) => {this.handleSubmit(e)}}>

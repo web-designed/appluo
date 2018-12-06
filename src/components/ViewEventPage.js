@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 import CommentsList from './CommentsList'
 import moment from 'moment'
 
-const ViewEvent = ({ match, events }) => {
+const ViewEventPage = ({ match, events }) => {
 
    const currentEvent = events.filter((event) => {
-      return event.id === Number(match.params.id)
+      return event.id === match.params.id
    })[0]
 
    return (
@@ -25,4 +25,4 @@ const mapStateToProps = (state) => ({
    events: state.events
 })
 
-export default connect(mapStateToProps)(ViewEvent)
+export default connect(mapStateToProps)(ViewEventPage)

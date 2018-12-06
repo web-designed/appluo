@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import AddEvent from '../components/AddEvent'
-import ViewEvent from '../components/ViewEvent'
+import AddEventPage from '../components/AddEventPage'
+import ViewEventPage from '../components/ViewEventPage'
 import Appluo from '../components/Appluo'
 import Header from '../components/Header'
 import NotFoundPage from '../components/NotFoundPage'
@@ -12,9 +12,9 @@ const AppRouter = () => (
          <Header />
          <Switch>
             <Route path="/" component={Appluo} exact={true} />
-            <Route path="/add" component={AddEvent} />
-            <Route path="/edit/:id" component={AddEvent} />
-            <Route path="/view/:id" component={ViewEvent} />
+            <Route path="/add" component={AddEventPage} />
+            <Route path="/edit/:id" component={AddEventPage} />
+            <Route path="/view/:id" component={ViewEventPage} />
             <Route component={NotFoundPage} />
          </Switch>
       </div>

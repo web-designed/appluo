@@ -11,13 +11,13 @@ import moment from 'moment'
 
    const store = configStore()
 
-   const event1 = store.dispatch(addEvent({ id:1, cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'test', cleaner: 'kylu', place: 'Küche'}))
-   const event2 = store.dispatch(addEvent({ id:2, cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'test2', cleaner: 'Kylu', place: 'Küche'}))
-   const event3 = store.dispatch(addEvent({ id:3, cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'test3', cleaner: 'till', place: 'Flur'}))
-   const event4 = store.dispatch(addEvent({ id:4, cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'my note', cleaner: 'chris', place: 'Bad'}))
-   const event5 = store.dispatch(addEvent({ id:5, cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'my note', cleaner: 'chris', place: 'Flur'}))
-   const event6 = store.dispatch(addEvent({ id:6, cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'my note', cleaner: 'Kylu', place: 'Bad'}))
-   const event7 = store.dispatch(addEvent({ id:7, cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'bad geputzt', cleaner: 'chris', place: 'Bad'}))
+   const event1 = store.dispatch(addEvent({ id:'1', cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'test', cleaner: 'kylu', place: 'Küche'}))
+   const event2 = store.dispatch(addEvent({ cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'test2', cleaner: 'Kylu', place: 'Küche'}))
+   const event3 = store.dispatch(addEvent({ cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'test3', cleaner: 'till', place: 'Flur'}))
+   const event4 = store.dispatch(addEvent({ cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'my note', cleaner: 'chris', place: 'Bad'}))
+   const event5 = store.dispatch(addEvent({ cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'my note', cleaner: 'chris', place: 'Flur'}))
+   const event6 = store.dispatch(addEvent({ cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'my note', cleaner: 'Kylu', place: 'Bad'}))
+   const event7 = store.dispatch(addEvent({ cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'bad geputzt', cleaner: 'chris', place: 'Bad'}))
 
    // store.dispatch(setTextFilter('note'))
 
