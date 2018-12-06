@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import uuid from 'uuid'
 import { addComment } from '../actions/events'
+import moment from 'moment'
 
 const CommentAddForm = ({ dispatch, currentEventId }) => {
 
@@ -10,7 +11,6 @@ const CommentAddForm = ({ dispatch, currentEventId }) => {
       const newComment = {
          commentBody: e.target.commentBody.value,
          commenter: 'kylu',
-         createdAt: 123,
          id: uuid()
       }
       dispatch(addComment(currentEventId, newComment))

@@ -1,4 +1,5 @@
 import uuid from 'uuid'
+import moment from 'moment'
 
 //*******************************************************
 // EVENTS ACTION GENERATORS
@@ -9,8 +10,8 @@ const addEvent = (
       description = '', 
       note = '', 
       cleaner = 'unknown', 
-      createdAt = 0, 
-      cleanedAt = 0,
+      cleanedAt = moment().valueOf(),
+      createdAt = moment().valueOf(),
       place = '',
       comments = [],
       id
@@ -44,7 +45,7 @@ const addComment = (eventId, { commentBody, commenter }) => ({
    eventId,
    comment: {
       id: uuid(),
-      createdAt: 125,
+      createdAt: moment().valueOf(),
       commenter,
       commentBody
    }

@@ -2,8 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { removeEvent } from '../actions/events'
 import { Link } from 'react-router-dom'
+import moment from 'moment'
 
-const EventListItem = ({ cleaner, place, cleanedAt, note, id, dispatch }) => {
+const EventListItem = ({ cleaner, place, cleanedAt, id, dispatch }) => {
 
    const handleRemoveEvent = (id) => {
       dispatch(removeEvent(id))
@@ -13,13 +14,10 @@ const EventListItem = ({ cleaner, place, cleanedAt, note, id, dispatch }) => {
       <div>
          <Link to={`/view/${id}`}>
             <div>
-               <strong>{cleaner}</strong> | 
-               {place} | 
-               {cleanedAt} | 
-               {note} 
+               <p>{place} | <strong>{cleaner}</strong> | {moment(cleanedAt).format('YYYY-MM-e')}</p>
             </div>
          </Link>
-         <button onClick={() => { handleRemoveEvent(id) }}>remove</button>
+         <p><button onClick={() => { handleRemoveEvent(id) }}>remove</button></p>
       </div>
    )
 }
