@@ -48,7 +48,10 @@ class Sorting extends React.Component {
                //    onChange={this.handleTextFilter} 
                // />
                }
+               Filter by:<br/>
+               <label for="place">place</label>
                <select 
+                  name="place"
                   onChange={this.handleFilterByPlace}
                >
                   <option value="all">All</option>
@@ -65,8 +68,10 @@ class Sorting extends React.Component {
                   })}
                </select>
 
+               <label for="cleaner">Name</label>
                <select 
                   onChange={this.handleFilterByName}
+                  name="cleaner"
                >
                   <option value="all">All</option>
                   {this.props.settings.cleaners.map((cleaner, index) => {
@@ -82,11 +87,7 @@ class Sorting extends React.Component {
                   })}
                </select>
 
-               <select value={this.props.filters.sort.toLowerCase()} onChange={this.handleSorting}>
-                  <option value="asc">ASC</option>
-                  <option value="desc">DESC</option>
-               </select>
-
+               <label>Date:</label>
                <DateRangePicker 
                   startDate={this.props.filters.startDate} // momentPropTypes.momentObj or null,
                   startDateId={uuid()}
@@ -99,6 +100,17 @@ class Sorting extends React.Component {
                   isOutsideRange = {() => false}
                   showClearDates = {true}
                />
+            </p>
+            <p>
+               <label for="sort">Sort</label>
+               <select 
+                  value={this.props.filters.sort.toLowerCase()} 
+                  onChange={this.handleSorting}
+                  name="sort"
+               >
+                  <option value="asc">ASC</option>
+                  <option value="desc">DESC</option>
+               </select>
             </p>
          </div>
       )
