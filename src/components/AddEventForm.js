@@ -10,12 +10,12 @@ import 'react-dates/lib/css/_datepicker.css'
 class AddEventForm extends React.Component {
 
    state = {
-      date: moment(),
+      date: this.props.cleanedAt ? moment(this.props.cleanedAt) : moment(),
       focused: false,
-      note:'',
-      place:'bad',
+      note: this.props.note ? this.props.note : '',
+      place: this.props.place ? this.props.place : 'küche',
       error: '',
-      cleaner: 'chris',
+      cleaner: this.props.cleaner ? this.props.cleaner : 'kylu',
    }
 
    onCleanerChange = (e) => {
@@ -51,7 +51,6 @@ class AddEventForm extends React.Component {
          cleaner: this.state.cleaner,
          place: this.state.place,
          note: this.state.note,
-         date: this.state.note
       }
       this.props.dispatch(addEvent(event))
       this.props.history.push('/')
@@ -102,6 +101,7 @@ class AddEventForm extends React.Component {
                <p>
                   <label htmlFor="note">Note</label>
                   <textarea 
+                     value={this.state.note}
                      name="note" 
                      placeholder="zB: Alles sauber gemacht"
                      onChange={this.onNoteChange}
