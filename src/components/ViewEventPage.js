@@ -13,7 +13,7 @@ const ViewEventPage = ({ match, events }) => {
    return (
       <div>
          <h1>{currentEvent.place}</h1>
-         <h2>{currentEvent.cleaner} : {moment(currentEvent.cleanedAt).format('YYYY-MM-e')}</h2>
+         <h2>{currentEvent.cleaner} : {moment(currentEvent.cleanedAt).format('YYYY-MM-D')}</h2>
          <p>{currentEvent.note}</p>
          <Link to={`edit/${match.params.id}`}><button>Edit</button></Link>
          <CommentsList currentEvent={currentEvent} />

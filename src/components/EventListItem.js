@@ -15,7 +15,7 @@ const EventListItem = ({ cleaner, place, cleanedAt, id, comments, dispatch }) =>
       <div>
          <Link to={`/view/${id}`}>
             <div>
-               <p>{place} | <strong>{cleaner}</strong> | {moment(cleanedAt).format('YYYY-MM-e')} | <CommentCount commentsCount={comments.length}/></p>
+               <p>{place} | <strong>{cleaner}</strong> | {moment(cleanedAt).format('YYYY-MM-D')} | <CommentCount commentsCount={comments.length}/></p>
             </div>
          </Link>
          <p><button onClick={() => { handleRemoveEvent(id) }}>remove</button></p>

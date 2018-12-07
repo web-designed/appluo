@@ -2,13 +2,15 @@
 // FILTERS REDUCER
 //*******************************************************
 
+   import moment from 'moment'
+
    const filtersReducerDefaultState = {
       text: '',
       filterByName: 'all',
       filterByPlace: 'all',
-      sort: 'ASC',
-      startDate: undefined,
-      endDate: undefined
+      sort: 'DESC',
+      startDate: moment().startOf('month'),
+      endDate: moment().endOf('month')
    }
 
    const filtersReducer = (state = filtersReducerDefaultState, action) => {
