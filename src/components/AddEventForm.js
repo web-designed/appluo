@@ -114,8 +114,8 @@ class AddEventForm extends React.Component {
    }
 }
 
-const mapStateToProps = (state) => ({
-   settings: state.settings
+const mapStateToProps = ({ settings }) => ({
+   settings: settings
 })
 
 export default connect(mapStateToProps)(AddEventForm)
