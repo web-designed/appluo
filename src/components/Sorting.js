@@ -12,6 +12,14 @@ class Sorting extends React.Component {
    }
 
    onDatesChange = ({ startDate, endDate }) => {
+      // this line handles the case of selecting endDate that is before the startDate
+      // in this case the datePicker returns null, which would crash the programm
+         endDate = endDate === null ? this.props.filters.endDate : endDate
+         // startDate = startDate === null ? this.props.settings.createdAt : startDate
+
+         console.log('enddate ' + endDate)
+         console.log('startdate ' + startDate)
+
       this.props.dispatch(setEndDate(endDate))
       this.props.dispatch(setStartDate(startDate))
    }
@@ -37,6 +45,9 @@ class Sorting extends React.Component {
    }
 
    render(){
+
+      const hideSort = this.props.hideFilters.indexOf('sort') !== -1
+
       return (
          <div>
             <p>
@@ -101,17 +112,19 @@ class Sorting extends React.Component {
                   showClearDates = {true}
                />
             </p>
-            <p>
-               <label for="sort">Sort</label>
-               <select 
-                  value={this.props.filters.sort.toLowerCase()} 
-                  onChange={this.handleSorting}
-                  name="sort"
-               >
-                  <option value="asc">ASC</option>
-                  <option value="desc">DESC</option>
-               </select>
-            </p>
+            {
+               !hideSort && (<p>
+                  <label for="sort">Sort</label>
+                  <select 
+                     value={this.props.filters.sort.toLowerCase()} 
+                     onChange={this.handleSorting}
+                     name="sort"
+                  >
+                     <option value="asc">ASC</option>
+                     <option value="desc">DESC</option>
+                  </select>
+               </p>)
+            }
          </div>
       )
    }

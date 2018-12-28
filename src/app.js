@@ -11,13 +11,22 @@ import moment from 'moment'
 
    const store = configStore()
 
-   const event1 = store.dispatch(addEvent({ id:'1', cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'test', cleaner: 'kylu', place: 'Küche'}))
+   const event0 = store.dispatch(addEvent({ id:'0', cleanedAt:moment('2018-01-01').valueOf(), createdAt:moment().valueOf(), note:'test', cleaner: 'kylu', place: 'Küche'}))
+   const event1 = store.dispatch(addEvent({ id:'1', cleanedAt:moment('2018-12-10').valueOf(), createdAt:moment().valueOf(), note:'test', cleaner: 'kylu', place: 'Küche'}))
    const event2 = store.dispatch(addEvent({ cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'test2', cleaner: 'Kylu', place: 'Küche'}))
    const event3 = store.dispatch(addEvent({ cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'test3', cleaner: 'till', place: 'Flur'}))
    const event4 = store.dispatch(addEvent({ cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'my note', cleaner: 'chris', place: 'Bad'}))
    const event5 = store.dispatch(addEvent({ cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'my note', cleaner: 'chris', place: 'Flur'}))
-   const event6 = store.dispatch(addEvent({ cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'my note', cleaner: 'Kylu', place: 'Bad'}))
-   const event7 = store.dispatch(addEvent({ cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'bad geputzt', cleaner: 'chris', place: 'Bad'}))
+   const event6 = store.dispatch(addEvent({ cleanedAt:moment('2018-12-06').valueOf(), createdAt:moment().valueOf(), cleaner: 'Kylu', place: 'Bad'}))
+   const event7 = store.dispatch(addEvent({ cleanedAt:moment('2018-12-03').valueOf(), createdAt:moment().valueOf(), cleaner: 'chris', place: 'Bad'}))
+   const event8 = store.dispatch(addEvent({ cleanedAt:moment('2018-12-02').valueOf(), createdAt:moment().valueOf(), note:'bad geputzt', cleaner: 'Alex', place: 'Bad'}))
+   const event9 = store.dispatch(addEvent({ cleanedAt:moment('2018-12-09').valueOf(), createdAt:moment().valueOf(), note:'bad geputzt', cleaner: 'Alex', place: 'Küche'}))
+   const event10 = store.dispatch(addEvent({ cleanedAt:moment('2018-12-16').valueOf(), createdAt:moment().valueOf(), note:'bad geputzt', cleaner: 'Kylu', place: 'Flur'}))
+   const event11 = store.dispatch(addEvent({ cleanedAt:moment('2018-12-17').valueOf(), createdAt:moment().valueOf(), note:'bad geputzt', cleaner: 'Till', place: 'Bad'}))
+   const event12 = store.dispatch(addEvent({ cleanedAt:moment('2018-12-20').valueOf(), createdAt:moment().valueOf(), note:'bad geputzt', cleaner: 'Alex', place: 'Flur'}))
+   const event13 = store.dispatch(addEvent({ cleanedAt:moment('2018-11-20').valueOf(), createdAt:moment().valueOf(), note:'bad geputzt', cleaner: 'Alex', place: 'Flur'}))
+   const event14 = store.dispatch(addEvent({ cleanedAt:moment('2018-10-20').valueOf(), createdAt:moment().valueOf(), note:'bad geputzt', cleaner: 'Alex', place: 'Flur'}))
+   const event15 = store.dispatch(addEvent({ cleanedAt:moment('2018-10-21').valueOf(), createdAt:moment().valueOf(), note:'bad geputzt', cleaner: 'Alex', place: 'Flur'}))
 
    // store.dispatch(setTextFilter('note'))
 

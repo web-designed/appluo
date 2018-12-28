@@ -6,6 +6,7 @@ import ViewEventPage from '../components/ViewEventPage'
 import Appluo from '../components/Appluo'
 import Header from '../components/Header'
 import NotFoundPage from '../components/NotFoundPage'
+import StatsPage from '../components/StatsPage'
 
 const AppRouter = () => (
    <BrowserRouter>
@@ -16,6 +17,7 @@ const AppRouter = () => (
             <Route path="/add" component={AddEventPage} />
             <Route path="/edit/:id" component={EditEventPage} />
             <Route path="/view/:id" component={ViewEventPage} />
+            <Route path="/stats" component={StatsPage} />
             <Route component={NotFoundPage} />
          </Switch>
       </div>

@@ -8,7 +8,7 @@ const Header = () => (
          //<strong>{this.state.wgName}</strong>
       }</p>
       <div>
-         <NavLink to="/" exact={true}>Dashboard</NavLink> | <NavLink to="/add">Add Event</NavLink>
+         <NavLink to="/" exact={true}>Dashboard</NavLink> | <NavLink to="/add">Add Event</NavLink> | <NavLink to="/stats">Stats</NavLink>
       </div>
    </header>
 )
