@@ -9,7 +9,7 @@ const EventListItem = ({ cleaner, place, cleanedAt, id, comments, note }) => {
       <div>
          <Link to={`/view/${id}`}>
             <div>
-               <p>{place} | <strong>{cleaner}</strong> | {moment(cleanedAt).format('YYYY-MM-D')} | <CommentCount commentsCount={comments.length}/> {note && <span> | N</span>}</p>
+               <p>{place} | <strong>{cleaner}</strong> | {moment(cleanedAt).format('YYYY-MM-DD')} | <CommentCount commentsCount={comments.length}/> {note && <span> | N</span>}</p>
             </div>
          </Link>
       </div>
