@@ -78,3 +78,19 @@ test('should set up an add event action object', () => {
       }
    })
 })
+
+test('should set up an add event action object with default values', () => {
+   const action = addEvent()
+   expect(action).toEqual({
+      type:'ADD_EVENT',
+      event: {
+         id: expect.any(String),
+         createdAt: expect.any(Number),
+         cleanedAt: expect.any(Number),
+         comments: [],
+         note: '', 
+         cleaner: 'unknown', 
+         place: ''
+      }
+   })
+})
