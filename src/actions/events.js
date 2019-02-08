@@ -7,7 +7,6 @@ import moment from 'moment'
 
 const addEvent = (
    {
-      description = '', 
       note = '', 
       cleaner = 'unknown', 
       cleanedAt = moment().valueOf(),

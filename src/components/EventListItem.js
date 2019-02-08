@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import moment from 'moment'
 import CommentCount from './CommentCount'
 
-const EventListItem = ({ cleaner, place, cleanedAt, id, comments, note }) => {
+export const EventListItem = ({ cleaner, place, cleanedAt, id, comments, note }) => {
    return (
       <div>
          <Link to={`/view/${id}`}>

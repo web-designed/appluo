@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render EventListItem correctly 1`] = `
+<div>
+  <Link
+    replace={false}
+    to="/view/0"
+  >
+    <div>
+      <p>
+        Bad
+         | 
+        <strong>
+          Kylu
+        </strong>
+         | 
+        1970-01-01
+         | 
+        <CommentCount
+          commentsCount={2}
+        />
+         
+        <span>
+           | N
+        </span>
+      </p>
+    </div>
+  </Link>
+</div>
+`;

@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Header correctly 1`] = `
+<header>
+  <h1>
+    Appluo
+  </h1>
+  <p>
+    Für eine schöne ambiente in der WG: 
+  </p>
+  <div>
+    <NavLink
+      activeClassName="active"
+      aria-current="page"
+      exact={true}
+      to="/"
+    >
+      Dashboard
+    </NavLink>
+     | 
+    <NavLink
+      activeClassName="active"
+      aria-current="page"
+      to="/add"
+    >
+      Add Event
+    </NavLink>
+     | 
+    <NavLink
+      activeClassName="active"
+      aria-current="page"
+      to="/stats"
+    >
+      Stats
+    </NavLink>
+  </div>
+</header>
+`;

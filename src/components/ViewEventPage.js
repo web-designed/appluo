@@ -28,12 +28,13 @@ class ViewEventPage extends React.Component {
    }
 
    render(){
-      if(this.getCurrentEvent(this.props.events)){
+      const currentEvent = this.getCurrentEvent(this.props.events)
+      if(currentEvent){
          return (
             <div>
-               <h1>{this.getCurrentEvent.place}</h1>
-               <h2>{this.getCurrentEvent.cleaner} : {moment(this.getCurrentEvent.cleanedAt).format('YYYY-MM-D')}</h2>
-               <p>{this.getCurrentEvent.note}</p>
+               <h1>{currentEvent.place}</h1>
+               <h2>{currentEvent.cleaner} : {moment(currentEvent.cleanedAt).format('YYYY-MM-D')}</h2>
+               <p>{currentEvent.note}</p>
                <p><button onClick={() => { this.handleRemoveEvent(this.props.match.params.id) }}>remove</button> - <Link to={`/edit/${this.props.match.params.id}`}><button>Edit</button></Link></p>
                <CommentsList currentEvent={this.getCurrentEvent(this.props.events)} />
             </div>

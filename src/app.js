@@ -7,6 +7,7 @@ import configStore from './store/configStore'
 import { addEvent, addComment } from './actions/events'
 import { setTextFilter, filterByName, filterByPlace } from './actions/filters'
 import moment from 'moment'
+import 'react-dates/lib/css/_datepicker.css'
 
 
    const store = configStore()
@@ -39,8 +40,8 @@ import moment from 'moment'
    // store.dispatch(filterByName('chris'))
    // store.dispatch(setStartDate(20))
    // store.dispatch(setEndDate(10000))
-   store.dispatch(addComment(event1.event.id, { commentBody: 'this is my comment', commenter: 'Kylu' }))
-   store.dispatch(addComment(event1.event.id, { commentBody: 'this is my another comment', commenter: 'Kylu' }))
+   // store.dispatch(addComment(event1.event.id, { commentBody: 'this is my comment', commenter: 'Kylu' }))
+   // store.dispatch(addComment(event1.event.id, { commentBody: 'this is my another comment', commenter: 'Kylu' }))
    // store.dispatch(removeComment(event1.event.id, event1.event.comments[0].id))
    // store.dispatch(editComment(event1.event.id, event1.event.comments[0].id, { commentBody: ' tes tes test' }))
 
