@@ -57,7 +57,7 @@ exports[`should render the AddEventForm for the Add Event page correctly 1`] = `
       <select
         name="place"
         onChange={[Function]}
-        value="bad"
+        value="küche"
       >
         <option
           key="All"
@@ -93,7 +93,7 @@ exports[`should render the AddEventForm for the Add Event page correctly 1`] = `
         calendarInfoPosition="bottom"
         customCloseIcon={null}
         customInputIcon={null}
-        date={"2019-02-08T12:45:58.689Z"}
+        date={"1970-01-01T00:00:00.000Z"}
         daySize={39}
         disableScroll={false}
         disabled={false}
@@ -291,7 +291,7 @@ exports[`should render the AddEventForm for the Edit Event page correctly 1`] = 
         calendarInfoPosition="bottom"
         customCloseIcon={null}
         customInputIcon={null}
-        date={"2019-02-08T14:07:11.467Z"}
+        date={"1970-01-01T00:00:00.000Z"}
         daySize={39}
         disableScroll={false}
         disabled={false}
