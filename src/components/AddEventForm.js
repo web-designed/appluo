@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import uuid from 'uuid'
-import { addEvent } from '../actions/events'
 import moment from 'moment'
 import 'react-dates/initialize'
 import { SingleDatePicker } from 'react-dates'
@@ -51,15 +50,15 @@ export class AddEventForm extends React.Component {
          place: this.state.place,
          note: this.state.note,
       }
-      this.props.dispatch(addEvent(event))
-      this.props.history.push('/')
+
+      this.props.handleSubmit(event)
    }
 
    render(){
 
       return(
          <div>
-            <form onSubmit={(e) => {this.handleSubmit(e)}}>
+            <form onSubmit={this.handleSubmit}>
                <p>
                   <label htmlFor="cleaner">Name</label>
                   <select 

@@ -2,6 +2,7 @@ import React from 'react'
 import AddEventForm from './AddEventForm'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { editEvent } from '../actions/events'
 
 const EditEventPage = ( props ) => {
 
@@ -19,6 +20,10 @@ const EditEventPage = ( props ) => {
                place={currentEvent.place}
                cleanedAt={currentEvent.cleanedAt}
                note={currentEvent.note}
+               handleSubmit={ (event) => {
+                  props.dispatch(editEvent(currentEvent.id, event))
+                  props.history.push('/')
+               }}
             />
          </div>
       )

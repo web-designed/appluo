@@ -1,13 +1,18 @@
 import React from 'react'
 import AddEventForm from './AddEventForm'
+import { addEvent } from '../actions/events'
+import { connect } from 'react-redux'
 
-const AddEventPage = ({ history }) => {
+const AddEventPage = (props) => {
    return(
       <div>
          <h1>Add a cleaning</h1>
-         <AddEventForm history={history} />
+         <AddEventForm handleSubmit={ (event) => {
+            props.dispatch(addEvent(event))
+            props.history.push('/')
+         }} history={props.history} />
       </div>
    )
 }
 
-export default AddEventPage
+export default connect()(AddEventPage)
