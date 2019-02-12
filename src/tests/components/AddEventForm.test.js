@@ -3,6 +3,7 @@ import { AddEventForm } from '../../components/AddEventForm'
 import { shallow } from 'enzyme'
 import settings from '../fixtures/settings'
 import events from '../fixtures/events'
+import moment from 'moment'
 
 test('should render the AddEventForm for the Add Event page correctly', () => {
    const wrapper = shallow(<AddEventForm settings={settings} />)
@@ -54,4 +55,11 @@ test('should call the handleOnSubmit prop for a valid form submission', () => {
       place: events[0].place,
       note: events[0].note,
    })
+})
+
+test('should set date on date change', () => {
+   const now = moment('2020-12-12')
+   const wrapper = shallow(<AddEventForm settings={settings} />)
+   wrapper.find('withStyles(SingleDatePicker)').prop('onDateChange')(now)
+   expect(wrapper.state('date')).toEqual(moment(now))
 })
