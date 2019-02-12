@@ -40,3 +40,18 @@ test('should set the state.note on input change', () => {
    })
    expect(wrapper.state('note')).toBe(value)
 })
+
+test('should call the handleOnSubmit prop for a valid form submission', () => {
+   const onSubmitSpy = jest.fn();
+   const wrapper = shallow(<AddEventForm handleSubmit={onSubmitSpy} settings={settings} {...events[0]} />)
+   wrapper.find('form').simulate('submit', {
+      preventDefault: () => {}
+   })
+   expect(onSubmitSpy).toHaveBeenLastCalledWith({
+      cleanedAt: events[0].cleanedAt,
+      createdAt: events[0].createdAt,
+      cleaner: events[0].cleaner,
+      place: events[0].place,
+      note: events[0].note,
+   })
+})
