@@ -3,21 +3,27 @@ import AddEventForm from './AddEventForm'
 import { addEvent } from '../actions/events'
 import { connect } from 'react-redux'
 
-const AddEventPage = (props) => (
-   <div>
-      <h1>Add a cleaning</h1>
-      <AddEventForm 
-         handleSubmit={ (event) => {
-            props.onSubmit(event)
-            props.history.push('/')
-         }} 
-         history={props.history} 
-      />
-   </div>
-)
+export class AddEventPage extends React.Component {
+
+   handleSubmit = (event) => {
+      this.props.onSubmit(event)
+      this.props.history.push('/')
+   }
+
+   render(){
+      return(
+         <div>
+            <h1>Add a cleaning</h1>
+            <AddEventForm 
+               handleSubmit={this.handleSubmit}
+               history={this.props.history}
+            />
+         </div>
+      )
+   }
+}
 
 const mapDispatchToProps = (dispatch) => ({
    onSubmit: (expense) => dispatch(addEvent(expense))
 })
-
 export default connect(undefined, mapDispatchToProps)(AddEventPage)
