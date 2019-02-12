@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 export class AddEventPage extends React.Component {
 
    handleSubmit = (event) => {
-      this.props.onSubmit(event)
+      this.props.addEvent(event)
       this.props.history.push('/')
    }
 
@@ -24,6 +24,6 @@ export class AddEventPage extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-   onSubmit: (expense) => dispatch(addEvent(expense))
+   addEvent: (expense) => dispatch(addEvent(expense))
 })
 export default connect(undefined, mapDispatchToProps)(AddEventPage)
