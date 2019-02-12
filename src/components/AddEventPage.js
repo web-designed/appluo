@@ -7,12 +7,21 @@ const AddEventPage = (props) => {
    return(
       <div>
          <h1>Add a cleaning</h1>
-         <AddEventForm handleSubmit={ (event) => {
-            props.dispatch(addEvent(event))
-            props.history.push('/')
-         }} history={props.history} />
+         <AddEventForm 
+            handleSubmit={ (event) => {
+               props.onSubmit(event)
+               props.history.push('/')
+            }} 
+            history={props.history} 
+         />
       </div>
    )
 }
 
-export default connect()(AddEventPage)
+const mapDispatchToProps = (dispatch) => {
+   return {
+      onSubmit: (expense) => dispatch(addEvent(expense))
+   }
+}
+
+export default connect(undefined, mapDispatchToProps)(AddEventPage)
