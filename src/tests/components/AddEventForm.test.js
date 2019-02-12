@@ -63,3 +63,10 @@ test('should set date on date change', () => {
    wrapper.find('withStyles(SingleDatePicker)').prop('onDateChange')(now)
    expect(wrapper.state('date')).toEqual(moment(now))
 })
+
+test('should set true on focus change', () => {
+   const focused = true
+   const wrapper = shallow(<AddEventForm settings={settings} />)
+   wrapper.find('withStyles(SingleDatePicker)').prop('onFocusChange')({focused})
+   expect(wrapper.state('focused')).toBe(focused)
+})
