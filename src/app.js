@@ -45,11 +45,11 @@ import 'react-dates/lib/css/_datepicker.css'
    // store.dispatch(removeComment(event1.event.id, event1.event.comments[0].id))
    // store.dispatch(editComment(event1.event.id, event1.event.comments[0].id, { commentBody: ' tes tes test' }))
 
-   store.subscribe(()=> {
-      console.log(store.getState())
-   })
+   // store.subscribe(()=> {
+   //    console.log(store.getState())
+   // })
 
-   console.log(store.getState())
+   // console.log(store.getState())
 
    const jsx = (
       <Provider store={store}>
