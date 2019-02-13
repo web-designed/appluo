@@ -4,42 +4,50 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { editEvent } from '../actions/events'
 
-const EditEventPage = ( props ) => {
+export class EditEventPage extends React.Component {
 
-   const currentEvent = props.events.find((event) => {
-      return event.id === props.match.params.id
-   })
+   handleSubmit = (event) => {
+      
+      this.props.editEvent(this.props.event.id, event)
+      this.props.history.push('/')
+   }
 
-   if(currentEvent){
-      return(
-         <div>
-            <h1>Edit your cleaning</h1>
-            <AddEventForm 
-               history={props.history}  
-               cleaner={currentEvent.cleaner}
-               place={currentEvent.place}
-               cleanedAt={currentEvent.cleanedAt}
-               note={currentEvent.note}
-               handleSubmit={ (event) => {
-                  props.dispatch(editEvent(currentEvent.id, event))
-                  props.history.push('/')
-               }}
-            />
-         </div>
-      )
-   } else {
+   render(){
       return (
          <div>
-            <h1>This cleaning event was removed</h1>
-            <Link to="/"><button>Dashboard</button></Link>
+            {
+               this.props.event ? (
+                  <div>
+                     <h1>Edit your cleaning</h1>
+                     <AddEventForm 
+                        history={this.props.history}  
+                        cleaner={this.props.event.cleaner}
+                        place={this.props.event.place}
+                        cleanedAt={this.props.event.cleanedAt}
+                        note={this.props.event.note}
+                        handleSubmit={this.handleSubmit}
+                     />
+                  </div>
+               ) : (
+                  <div>
+                     <h3>This Cleaning doesn't exist or has been removed</h3>
+                     <Link to="/"><button>Dashboard</button></Link>
+                     <Link to="/add"><button>Add Cleaning</button></Link>
+                  </div>
+               )
+            }
          </div>
       )
    }
-
 }
 
-const mapStateToProps = (state) => ({
-   events: state.events
+const mapDispatchToProps = (dispatch) => ({
+   editEvent: (id, event) => dispatch(editEvent(id, event))
 })
 
-export default connect(mapStateToProps)(EditEventPage)
+const mapStateToProps = (state, props) => ({
+   event: state.events.find((event) => {
+      return event.id === props.match.params.id
+   })
+})
+export default connect(mapStateToProps, mapDispatchToProps)(EditEventPage)
