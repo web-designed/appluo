@@ -5,44 +5,51 @@ import CommentsList from './CommentsList'
 import moment from 'moment'
 import { removeEvent } from '../actions/events'
 
-class ViewEventPage extends React.Component {
+export class ViewEventPage extends React.Component {
 
    state = {
-      notification: ''
+      eventDeletedNotification: ''
    }
 
-   handleRemoveEvent(id){
+   handleRemoveEvent = () => {
       this.setState(() => ({
-         notification: 'the cleaning was removed'
+         eventDeletedNotification: this.props.notifications.afterDelete
       }))
-      this.props.dispatch(removeEvent(id))
       setTimeout(() => {
+         this.props.removeEvent(this.props.event.id)
          this.props.history.push('/')
       }, 2000);
    }
 
-   getCurrentEvent(events){
-      return events.find((event) => {
-         return event.id === this.props.match.params.id
-      })
-   }
-
    render(){
-      const currentEvent = this.getCurrentEvent(this.props.events)
-      if(currentEvent){
+      if(this.props.event){
          return (
             <div>
-               <h1>{currentEvent.place}</h1>
-               <h2>{currentEvent.cleaner} : {moment(currentEvent.cleanedAt).format('YYYY-MM-D')}</h2>
-               <p>{currentEvent.note}</p>
-               <p><button onClick={() => { this.handleRemoveEvent(this.props.match.params.id) }}>remove</button> - <Link to={`/edit/${this.props.match.params.id}`}><button>Edit</button></Link></p>
-               <CommentsList currentEvent={this.getCurrentEvent(this.props.events)} />
+               {
+                 !this.state.eventDeletedNotification ? (
+                     <div>
+                        <h1>{this.props.event.place}</h1>
+                        <h2>{this.props.event.cleaner} : {moment(this.props.event.cleanedAt).format('YYYY-MM-D')}</h2>
+                        <p>{this.props.event.note}</p>
+                        <p>
+                           <button onClick={this.handleRemoveEvent}>remove</button> 
+                           <Link to={`/edit/${this.props.event.id}`}><button>Edit</button></Link>
+                        </p>
+                        <CommentsList currentEvent={this.props.event} />
+                     </div>
+                  ) : (
+                     <div>
+                        <h1>{this.state.eventDeletedNotification}</h1>
+                        <Link to="/"><button>Dashboard</button></Link>
+                     </div>
+                  )
+               }
             </div>
          )
       } else {
          return (
             <div>
-               <h1>This cleaning was removed</h1>
+               <h1>{this.props.notifications.notFound}</h1>
                <Link to="/"><button>Dashboard</button></Link>
             </div>
          )
@@ -50,8 +57,15 @@ class ViewEventPage extends React.Component {
    }
 }
 
-const mapStateToProps = (state) => ({
-   events: state.events
+const mapDispatchToProps = (dispatch, props) => ({
+   removeEvent: (eventId) => { dispatch(removeEvent(eventId)) }
 })
 
-export default connect(mapStateToProps)(ViewEventPage)
+const mapStateToProps = (state, props) => ({
+   notifications: state.settings.notifications.event,
+   event: state.events.find((event) => {
+      return event.id === props.match.params.id
+   })
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ViewEventPage)

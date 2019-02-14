@@ -7,7 +7,6 @@ import { editEvent } from '../actions/events'
 export class EditEventPage extends React.Component {
 
    handleSubmit = (event) => {
-      
       this.props.editEvent(this.props.event.id, event)
       this.props.history.push('/')
    }
