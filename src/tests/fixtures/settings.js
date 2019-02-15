@@ -6,6 +6,9 @@ const settings = {
       event: {
          afterDelete: 'The cleaning was successfully removed',
          notFound: "The cleaning doesn't exist or has been removed"
+      },
+      comment: {
+         validate: 'Please add your comment'
       }
    }
 }
