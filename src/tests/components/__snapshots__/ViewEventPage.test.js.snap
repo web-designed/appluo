@@ -29,32 +29,37 @@ exports[`should render the ViewEventPage correctly if event found 1`] = `
         </button>
       </Link>
     </p>
-    <Connect(CommentsList)
-      currentEvent={
-        Object {
-          "cleanedAt": 0,
-          "cleaner": "Kylu",
-          "comments": Array [
-            Object {
-              "commentBody": "this is my comment",
-              "commenter": "Kylu",
-              "createdAt": 125,
-              "id": "1",
-            },
-            Object {
-              "commentBody": "this is my another comment",
-              "commenter": "Chris",
-              "createdAt": 130,
-              "id": "2",
-            },
-          ],
-          "createdAt": 0,
-          "id": "0",
-          "note": "Alles sauber gemacht",
-          "place": "Bad",
+    <div>
+      <CommentsList
+        currentEvent={
+          Object {
+            "cleanedAt": 0,
+            "cleaner": "Kylu",
+            "comments": Array [
+              Object {
+                "commentBody": "this is my comment",
+                "commenter": "Kylu",
+                "createdAt": 125,
+                "id": "1",
+              },
+              Object {
+                "commentBody": "this is my another comment",
+                "commenter": "Chris",
+                "createdAt": 130,
+                "id": "2",
+              },
+            ],
+            "createdAt": 0,
+            "id": "0",
+            "note": "Alles sauber gemacht",
+            "place": "Bad",
+          }
         }
-      }
-    />
+      />
+      <Connect(CommentAddForm)
+        currentEventId="0"
+      />
+    </div>
   </div>
 </div>
 `;

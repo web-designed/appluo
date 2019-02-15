@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import CommentsList from './CommentsList'
 import moment from 'moment'
 import { removeEvent } from '../actions/events'
+import CommentAddForm from './CommentAddForm'
 
 export class ViewEventPage extends React.Component {
 
@@ -35,7 +36,10 @@ export class ViewEventPage extends React.Component {
                            <button onClick={this.handleRemoveEvent}>remove</button> 
                            <Link to={`/edit/${this.props.event.id}`}><button>Edit</button></Link>
                         </p>
-                        <CommentsList currentEvent={this.props.event} />
+                        <div>
+                           <CommentsList currentEvent={this.props.event} />
+                           <CommentAddForm currentEventId={this.props.event.id} />
+                        </div>
                      </div>
                   ) : (
                      <div>
