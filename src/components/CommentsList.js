@@ -8,12 +8,7 @@ const CommentsList = ({ events, currentEvent }) => {
       <div>
          <h1>Comments:</h1>
          {currentEvent.comments.map((comment) => (
-            <CommentsListItem 
-               commentsId={comment.id}
-               createdAt={comment.createdAt}
-               commenter={comment.commenter}
-               commentBody={comment.commentBody}
-            />
+            <CommentsListItem comment={comment} />
          ))}
          <CommentAddForm currentEventId={currentEvent.id} />
       </div>
