@@ -14,14 +14,11 @@ class Sorting extends React.Component {
    onDatesChange = ({ startDate, endDate }) => {
       // this line handles the case of selecting endDate that is before the startDate
       // in this case the datePicker returns null, which would crash the programm
-         endDate = endDate === null ? this.props.filters.endDate : endDate
-         // startDate = startDate === null ? this.props.settings.createdAt : startDate
+      endDate = endDate === null ? this.props.filters.endDate : endDate
+      // startDate = startDate === null ? this.props.settings.createdAt : startDate
 
-         console.log('enddate ' + endDate)
-         console.log('startdate ' + startDate)
-
-      this.props.dispatch(setEndDate(endDate))
-      this.props.dispatch(setStartDate(startDate))
+      this.props.setEndDate(endDate)
+      this.props.setStartDate(startDate)
    }
 
    onFocusChange = (focusedInput) => {
@@ -33,11 +30,11 @@ class Sorting extends React.Component {
    // }
 
    handleFilterByName = (e) => {
-      this.props.dispatch(filterByName(e.target.value))
+      this.props.filterByName(e.target.value)
    }
 
    handleFilterByPlace = (e) => {
-      this.props.dispatch(filterByPlace(e.target.value))
+      this.props.filterByPlace(e.target.value)
    }
 
    handleSorting = (e) => {
@@ -130,9 +127,16 @@ class Sorting extends React.Component {
    }
 }
 
-const mapStateToProps = ({filters, settings}) => ({
+const mapDispatchToProps = (dispatch) => ({
+   setEndDate: (endDate) => dispatch(setEndDate(endDate)),
+   setStartDate: (startDate) => dispatch(setStartDate(startDate)),
+   filterByName: (name) => dispatch(filterByName(name)),
+   filterByPlace: (place) => dispatch(filterByPlace(place)),
+})
+
+const mapStateToProps = ({ filters, settings }) => ({
    filters: filters,
    settings: settings
 })
 
-export default connect(mapStateToProps)(Sorting)
+export default connect(mapStateToProps, mapDispatchToProps)(Sorting)
