@@ -3,16 +3,26 @@
 const demoState = {
    settings: {
       wgName: 'Greifswalder',
-      places: ['All', 'Küche', 'Bad', 'Flur'],
-      cleaners: ['All', 'Kylu', 'Alex', 'Till', 'Chris'],
+      places: ['Küche', 'Bad', 'Flur'],
+      cleaners: ['Kylu', 'Alex', 'Till', 'Chris'],
+      createdAt: moment('2018-12-01'),
+      notifications: {
+         event: {
+            afterDelete: 'The cleaning was successfully removed',
+            notFound: "The cleaning doesn't exist or has been removed"
+         },
+         comment: {
+            validate: 'Please add your comment'
+         }
+      }
    },
    filters: {
       text: '',
-      filterByName: 'Kylu',
-      filterByPlace: 'Küche',
-      sort: 'ASC',
-      startDate: '',
-      endDate: ''
+      filterByName: 'all',
+      filterByPlace: 'all',
+      sort: 'DESC',
+      startDate: moment().startOf('month'),
+      endDate: moment().endOf('month')
    },
    events: [
       {

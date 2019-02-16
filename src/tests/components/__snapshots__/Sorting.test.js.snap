@@ -1,0 +1,447 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Sorting correctly with altered filters 1`] = `
+<div>
+  <p>
+    Filter by:
+    <br />
+    <label
+      for="place"
+    >
+      place
+    </label>
+    <select
+      name="place"
+      onChange={[Function]}
+    >
+      <option
+        value="all"
+      >
+        All
+      </option>
+      <option
+        key="index"
+        selected={false}
+        value="all"
+      >
+        All
+      </option>
+      <option
+        key="index"
+        selected={false}
+        value="küche"
+      >
+        Küche
+      </option>
+      <option
+        key="index"
+        selected={false}
+        value="bad"
+      >
+        Bad
+      </option>
+      <option
+        key="index"
+        selected={false}
+        value="flur"
+      >
+        Flur
+      </option>
+    </select>
+    <label
+      for="cleaner"
+    >
+      Name
+    </label>
+    <select
+      name="cleaner"
+      onChange={[Function]}
+    >
+      <option
+        value="all"
+      >
+        All
+      </option>
+      <option
+        key="0"
+        selected={false}
+        value="all"
+      >
+        All
+      </option>
+      <option
+        key="1"
+        selected={false}
+        value="kylu"
+      >
+        Kylu
+      </option>
+      <option
+        key="2"
+        selected={false}
+        value="alex"
+      >
+        Alex
+      </option>
+      <option
+        key="3"
+        selected={false}
+        value="till"
+      >
+        Till
+      </option>
+      <option
+        key="4"
+        selected={false}
+        value="chris"
+      >
+        Chris
+      </option>
+    </select>
+    <label>
+      Date:
+    </label>
+    <withStyles(DateRangePicker)
+      anchorDirection="left"
+      appendToBody={false}
+      block={false}
+      calendarInfoPosition="bottom"
+      customArrowIcon={null}
+      customCloseIcon={null}
+      customInputIcon={null}
+      daySize={39}
+      disableScroll={false}
+      disabled={false}
+      displayFormat={[Function]}
+      enableOutsideDays={false}
+      endDate={"1970-01-06T00:00:00.000Z"}
+      endDateId="endDateId"
+      endDatePlaceholderText="End Date"
+      firstDayOfWeek={null}
+      focusedInput={null}
+      hideKeyboardShortcutsPanel={false}
+      horizontalMargin={0}
+      initialVisibleMonth={null}
+      inputIconPosition="before"
+      isDayBlocked={[Function]}
+      isDayHighlighted={[Function]}
+      isOutsideRange={[Function]}
+      isRTL={false}
+      keepFocusOnInput={false}
+      keepOpenOnDateSelect={false}
+      minimumNights={1}
+      monthFormat="MMMM YYYY"
+      navNext={null}
+      navPrev={null}
+      noBorder={false}
+      numberOfMonths={1}
+      onClose={[Function]}
+      onDatesChange={[Function]}
+      onFocusChange={[Function]}
+      onNextMonthClick={[Function]}
+      onPrevMonthClick={[Function]}
+      openDirection="down"
+      orientation="horizontal"
+      phrases={
+        Object {
+          "calendarLabel": "Calendar",
+          "chooseAvailableEndDate": [Function],
+          "chooseAvailableStartDate": [Function],
+          "clearDates": "Clear Dates",
+          "closeDatePicker": "Close",
+          "dateIsSelected": [Function],
+          "dateIsUnavailable": [Function],
+          "enterKey": "Enter key",
+          "escape": "Escape key",
+          "focusStartDate": "Interact with the calendar and add the check-in date for your trip.",
+          "hideKeyboardShortcutsPanel": "Close the shortcuts panel.",
+          "homeEnd": "Home and end keys",
+          "jumpToNextMonth": "Move forward to switch to the next month.",
+          "jumpToPrevMonth": "Move backward to switch to the previous month.",
+          "keyboardNavigationInstructions": "Press the down arrow key to interact with the calendar and
+  select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardShortcuts": "Keyboard Shortcuts",
+          "leftArrowRightArrow": "Right and left arrow keys",
+          "moveFocusByOneDay": "Move backward (left) and forward (right) by one day.",
+          "moveFocusByOneMonth": "Switch months.",
+          "moveFocusByOneWeek": "Move backward (up) and forward (down) by one week.",
+          "moveFocustoStartAndEndOfWeek": "Go to the first or last day of a week.",
+          "openThisPanel": "Open this panel.",
+          "pageUpPageDown": "page up and page down keys",
+          "questionMark": "Question mark",
+          "returnFocusToInput": "Return to the date input field.",
+          "selectFocusedDate": "Select the date in focus.",
+          "showKeyboardShortcutsPanel": "Open the keyboard shortcuts panel.",
+          "upArrowDownArrow": "up and down arrow keys",
+        }
+      }
+      readOnly={false}
+      regular={false}
+      renderCalendarInfo={null}
+      renderDayContents={null}
+      renderMonthElement={null}
+      renderMonthText={null}
+      reopenPickerOnClearDates={false}
+      required={false}
+      screenReaderInputMessage=""
+      showClearDates={true}
+      showDefaultInputIcon={false}
+      small={false}
+      startDate={"1970-01-01T00:00:00.000Z"}
+      startDateId="startDateId"
+      startDatePlaceholderText="Start Date"
+      verticalHeight={null}
+      verticalSpacing={22}
+      weekDayFormat="dd"
+      withFullScreenPortal={false}
+      withPortal={false}
+    />
+  </p>
+  <p>
+    <label
+      for="sort"
+    >
+      Sort
+    </label>
+    <select
+      name="sort"
+      onChange={[Function]}
+      value="desc"
+    >
+      <option
+        value="asc"
+      >
+        ASC
+      </option>
+      <option
+        value="desc"
+      >
+        DESC
+      </option>
+    </select>
+  </p>
+</div>
+`;
+
+exports[`should render Sorting correctly with default filters 1`] = `
+<div>
+  <p>
+    Filter by:
+    <br />
+    <label
+      for="place"
+    >
+      place
+    </label>
+    <select
+      name="place"
+      onChange={[Function]}
+    >
+      <option
+        value="all"
+      >
+        All
+      </option>
+      <option
+        key="index"
+        selected={true}
+        value="all"
+      >
+        All
+      </option>
+      <option
+        key="index"
+        selected={false}
+        value="küche"
+      >
+        Küche
+      </option>
+      <option
+        key="index"
+        selected={false}
+        value="bad"
+      >
+        Bad
+      </option>
+      <option
+        key="index"
+        selected={false}
+        value="flur"
+      >
+        Flur
+      </option>
+    </select>
+    <label
+      for="cleaner"
+    >
+      Name
+    </label>
+    <select
+      name="cleaner"
+      onChange={[Function]}
+    >
+      <option
+        value="all"
+      >
+        All
+      </option>
+      <option
+        key="0"
+        selected={true}
+        value="all"
+      >
+        All
+      </option>
+      <option
+        key="1"
+        selected={false}
+        value="kylu"
+      >
+        Kylu
+      </option>
+      <option
+        key="2"
+        selected={false}
+        value="alex"
+      >
+        Alex
+      </option>
+      <option
+        key="3"
+        selected={false}
+        value="till"
+      >
+        Till
+      </option>
+      <option
+        key="4"
+        selected={false}
+        value="chris"
+      >
+        Chris
+      </option>
+    </select>
+    <label>
+      Date:
+    </label>
+    <withStyles(DateRangePicker)
+      anchorDirection="left"
+      appendToBody={false}
+      block={false}
+      calendarInfoPosition="bottom"
+      customArrowIcon={null}
+      customCloseIcon={null}
+      customInputIcon={null}
+      daySize={39}
+      disableScroll={false}
+      disabled={false}
+      displayFormat={[Function]}
+      enableOutsideDays={false}
+      endDate={null}
+      endDateId="endDateId"
+      endDatePlaceholderText="End Date"
+      firstDayOfWeek={null}
+      focusedInput={null}
+      hideKeyboardShortcutsPanel={false}
+      horizontalMargin={0}
+      initialVisibleMonth={null}
+      inputIconPosition="before"
+      isDayBlocked={[Function]}
+      isDayHighlighted={[Function]}
+      isOutsideRange={[Function]}
+      isRTL={false}
+      keepFocusOnInput={false}
+      keepOpenOnDateSelect={false}
+      minimumNights={1}
+      monthFormat="MMMM YYYY"
+      navNext={null}
+      navPrev={null}
+      noBorder={false}
+      numberOfMonths={1}
+      onClose={[Function]}
+      onDatesChange={[Function]}
+      onFocusChange={[Function]}
+      onNextMonthClick={[Function]}
+      onPrevMonthClick={[Function]}
+      openDirection="down"
+      orientation="horizontal"
+      phrases={
+        Object {
+          "calendarLabel": "Calendar",
+          "chooseAvailableEndDate": [Function],
+          "chooseAvailableStartDate": [Function],
+          "clearDates": "Clear Dates",
+          "closeDatePicker": "Close",
+          "dateIsSelected": [Function],
+          "dateIsUnavailable": [Function],
+          "enterKey": "Enter key",
+          "escape": "Escape key",
+          "focusStartDate": "Interact with the calendar and add the check-in date for your trip.",
+          "hideKeyboardShortcutsPanel": "Close the shortcuts panel.",
+          "homeEnd": "Home and end keys",
+          "jumpToNextMonth": "Move forward to switch to the next month.",
+          "jumpToPrevMonth": "Move backward to switch to the previous month.",
+          "keyboardNavigationInstructions": "Press the down arrow key to interact with the calendar and
+  select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardShortcuts": "Keyboard Shortcuts",
+          "leftArrowRightArrow": "Right and left arrow keys",
+          "moveFocusByOneDay": "Move backward (left) and forward (right) by one day.",
+          "moveFocusByOneMonth": "Switch months.",
+          "moveFocusByOneWeek": "Move backward (up) and forward (down) by one week.",
+          "moveFocustoStartAndEndOfWeek": "Go to the first or last day of a week.",
+          "openThisPanel": "Open this panel.",
+          "pageUpPageDown": "page up and page down keys",
+          "questionMark": "Question mark",
+          "returnFocusToInput": "Return to the date input field.",
+          "selectFocusedDate": "Select the date in focus.",
+          "showKeyboardShortcutsPanel": "Open the keyboard shortcuts panel.",
+          "upArrowDownArrow": "up and down arrow keys",
+        }
+      }
+      readOnly={false}
+      regular={false}
+      renderCalendarInfo={null}
+      renderDayContents={null}
+      renderMonthElement={null}
+      renderMonthText={null}
+      reopenPickerOnClearDates={false}
+      required={false}
+      screenReaderInputMessage=""
+      showClearDates={true}
+      showDefaultInputIcon={false}
+      small={false}
+      startDate={null}
+      startDateId="startDateId"
+      startDatePlaceholderText="Start Date"
+      verticalHeight={null}
+      verticalSpacing={22}
+      weekDayFormat="dd"
+      withFullScreenPortal={false}
+      withPortal={false}
+    />
+  </p>
+  <p>
+    <label
+      for="sort"
+    >
+      Sort
+    </label>
+    <select
+      name="sort"
+      onChange={[Function]}
+      value="asc"
+    >
+      <option
+        value="asc"
+      >
+        ASC
+      </option>
+      <option
+        value="desc"
+      >
+        DESC
+      </option>
+    </select>
+  </p>
+</div>
+`;
