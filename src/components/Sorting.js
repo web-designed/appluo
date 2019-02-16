@@ -5,7 +5,7 @@ import moment from 'moment'
 import { DateRangePicker } from 'react-dates'
 import uuid from 'uuid'
 
-class Sorting extends React.Component {
+export class Sorting extends React.Component {
 
    state = {
       focusedInput: null
@@ -38,7 +38,7 @@ class Sorting extends React.Component {
    }
 
    handleSorting = (e) => {
-      e.target.value === 'asc' ? this.props.dispatch(sortAsc()) : this.props.dispatch(sortDesc())
+      e.target.value === 'asc' ? this.props.sortAsc() : this.props.sortDesc()
    }
 
    render(){
@@ -98,9 +98,9 @@ class Sorting extends React.Component {
                <label>Date:</label>
                <DateRangePicker 
                   startDate={this.props.filters.startDate} // momentPropTypes.momentObj or null,
-                  startDateId={uuid()}
+                  startDateId={'startDateId'}
                   endDate={this.props.filters.endDate} // momentPropTypes.momentObj or null,
-                  endDateId={uuid()}
+                  endDateId={'endDateId'}
                   onDatesChange={this.onDatesChange} // PropTypes.func.isRequired,
                   focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
                   onFocusChange={this.onFocusChange} // PropTypes.func.isRequired,
@@ -132,6 +132,9 @@ const mapDispatchToProps = (dispatch) => ({
    setStartDate: (startDate) => dispatch(setStartDate(startDate)),
    filterByName: (name) => dispatch(filterByName(name)),
    filterByPlace: (place) => dispatch(filterByPlace(place)),
+   sortAsc: () => dispatch(sortAsc()),
+   sortDesc: () => dispatch(sortDesc())
+   
 })
 
 const mapStateToProps = ({ filters, settings }) => ({
