@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the AddEventPage correctly 1`] = `
+<div>
+  <h1>
+    Add a cleaning
+  </h1>
+  <Connect(AddEventForm)
+    handleSubmit={[Function]}
+    history={
+      Object {
+        "push": [MockFunction],
+      }
+    }
+  />
+</div>
+`;

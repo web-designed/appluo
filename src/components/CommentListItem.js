@@ -1,17 +1,19 @@
 import React from 'react'
 import moment from 'moment'
 
-const CommentListItem = ({ commentsId, createdAt, commenter, commentBody }) => {
+const CommentListItem = ({ comment }) => {
 
-   const now = moment()
-   const fromNow = moment(createdAt).from(now)
+   if(comment){
+      const now = moment()
+      const fromNow = moment(comment.createdAt).from(now)
 
-   return (
-      <div>
-         <h3>{commentBody}</h3>
-         <p>{commenter} - {fromNow} </p>
-      </div>
-   )
+      return (
+         <div>
+            <h3>{comment.commentBody}</h3>
+            <p>{comment.commenter} - {fromNow} </p>
+         </div>
+      )
+   }
 }
 
 export default CommentListItem

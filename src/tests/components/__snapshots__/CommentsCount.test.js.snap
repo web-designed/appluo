@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render CommentsCount correctly 1`] = `
+<span>
+  comments: 
+  <span>
+    2
+  </span>
+</span>
+`;

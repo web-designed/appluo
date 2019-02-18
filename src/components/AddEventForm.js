@@ -1,13 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import uuid from 'uuid'
-import { addEvent } from '../actions/events'
 import moment from 'moment'
 import 'react-dates/initialize'
 import { SingleDatePicker } from 'react-dates'
-import 'react-dates/lib/css/_datepicker.css'
 
-class AddEventForm extends React.Component {
+export class AddEventForm extends React.Component {
 
    state = {
       date: this.props.cleanedAt ? moment(this.props.cleanedAt) : moment(),
@@ -52,23 +50,24 @@ class AddEventForm extends React.Component {
          place: this.state.place,
          note: this.state.note,
       }
-      this.props.dispatch(addEvent(event))
-      this.props.history.push('/')
+
+      this.props.handleSubmit(event)
    }
 
    render(){
+
       return(
          <div>
-            <form onSubmit={(e) => {this.handleSubmit(e)}}>
+            <form onSubmit={this.handleSubmit}>
                <p>
-                  <label htmlFor="name">Name</label>
+                  <label htmlFor="cleaner">Name</label>
                   <select 
                      name="cleaner" 
                      onChange={this.onCleanerChange}
                      value={this.state.cleaner}
                   >
                      {
-                        this.props.settings.cleaners.map((cleaner) => {
+                        this.props.settings.cleaners.map( cleaner => {
                            return <option value={cleaner.toLowerCase()} key={cleaner}>{cleaner}</option>
                         })
                      }
@@ -79,10 +78,10 @@ class AddEventForm extends React.Component {
                   <select 
                      name="place" 
                      onChange={this.onPlaceChange}
-                     value={this.state.place}
+                     value={this.state.place.toLowerCase()}
                   >
                      {
-                        this.props.settings.places.map((place) => {
+                        this.props.settings.places.map( place => {
                            return <option value={place.toLowerCase()} key={place}>{place}</option>
                         })
                      }

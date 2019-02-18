@@ -4,7 +4,7 @@ import uuid from 'uuid'
 import { addComment } from '../actions/events'
 import moment from 'moment'
 
-class CommentAddForm extends React.Component {
+export class CommentAddForm extends React.Component {
 
    state = {
       error: '',
@@ -18,19 +18,25 @@ class CommentAddForm extends React.Component {
    }
 
    handleSubmitComment = (e) => {
+
       e.preventDefault()
+
       if(!this.state.commentBody){
          this.setState(() => ({
-            error: 'Please add the comment!'
+            error: this.props.notifications.validate
          }))
       } else {
          const newComment = {
             commentBody: this.state.commentBody,
             commenter: this.state.commenter
          }
-         this.props.dispatch(addComment(this.props.currentEventId, newComment))
+         //dispatch the action
+         this.props.addComment(this.props.currentEventId, newComment)
+
+         //clear the comment and the validation error
          this.setState(() => ({
-            commentBody: ''
+            commentBody: '',
+            error: ''
          }))
       }
    }
@@ -45,13 +51,21 @@ class CommentAddForm extends React.Component {
                   value={this.state.commentBody}
                   onChange={this.onCommentBodyChange}
                   placeholder="Add your comment"
-               ></textarea><br/>
-               {this.state.error && <span>{this.state.error}</span>}
-               <button>Add Comment</button>
+               ></textarea>
+               {this.state.error && <p><span>{this.state.error}</span></p>}
+               <p><button>Add Comment</button></p>
             </form>
          </div>
       )
    }
 }
 
-export default connect()(CommentAddForm)
+const mapDispatchToProps = dispatch => ({
+   addComment: (id, newComment) => dispatch(addComment(id, newComment))
+})
+
+const mapStateToProps = state => ({
+   notifications: state.settings.notifications.comment
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(CommentAddForm)
