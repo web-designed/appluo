@@ -1,38 +1,67 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render Header correctly 1`] = `
-<header>
-  <h1>
-    Appluo
-  </h1>
-  <p>
-    Für eine schöne ambiente in der WG: 
-  </p>
-  <div>
-    <NavLink
-      activeClassName="active"
-      aria-current="page"
-      exact={true}
-      to="/"
+<header
+  class="pt-3 bg-dark"
+>
+  <div
+    class="container text-white"
+  >
+    <h1
+      class="h2 mb-0"
     >
-      Dashboard
-    </NavLink>
-     | 
-    <NavLink
-      activeClassName="active"
-      aria-current="page"
-      to="/add"
-    >
-      Add Event
-    </NavLink>
-     | 
-    <NavLink
-      activeClassName="active"
-      aria-current="page"
-      to="/stats"
-    >
-      Stats
-    </NavLink>
+      Appluo
+    </h1>
+    <p />
   </div>
+  <nav
+    class="navbar navbar-expand-sm navbar-dark bg-secondary"
+  >
+    <div
+      class="container"
+    >
+      <ul
+        class="navbar-nav mb-0"
+      >
+        <li
+          class="nav-item"
+        >
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            class="nav-link"
+            exact={true}
+            to="/"
+          >
+            Dashboard
+          </NavLink>
+        </li>
+        <li
+          class="nav-item"
+        >
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            class="nav-link"
+            to="/add"
+          >
+            Add Event
+          </NavLink>
+        </li>
+        <li
+          class="nav-item"
+        >
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            class="nav-link"
+            to="/stats"
+          >
+            Stats
+          </NavLink>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </header>
 `;
