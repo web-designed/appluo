@@ -46,8 +46,8 @@ export class Sorting extends React.Component {
       const hideSort = this.props.hideFilters.indexOf('sort') !== -1
 
       return (
-         <div>
-            <p>
+         <div class="container-fluid pt-3 pb-3">
+            <div>
                {
                // <input 
                //    type="text" 
@@ -56,72 +56,96 @@ export class Sorting extends React.Component {
                //    onChange={this.handleTextFilter} 
                // />
                }
-               Filter by:<br/>
-               <label for="place">place</label>
-               <select 
-                  name="place"
-                  onChange={this.handleFilterByPlace}
-               >
-                  <option value="all">All</option>
-                  {this.props.settings.places.map((place, index) => {
-                     return (
-                        <option 
-                           value={place.toLowerCase()} 
-                           key="index"
-                           selected = {place.toLowerCase() === this.props.filters.filterByPlace}
-                        >
-                           {place}
-                        </option>
+               <h6>Filter & Sort</h6>
+               <div class="row">
+                  {
+                     !hideSort && (
+                        <div class="input-group col-md-3 col-lg-2 mb-3">
+                           <div class="input-group-prepend">
+                              <label class="input-group-text" for="sorting">Sort</label>
+                           </div>
+                           <select 
+                              name="sorting"
+                              onChange={this.handleSorting}
+                              class="custom-select" 
+                              id="sorting"
+                              value={this.props.filters.sort.toLowerCase()} 
+                           >
+                              <option value="asc">ASC</option>
+                              <option value="desc">DESC</option>
+                           </select>
+                        </div>
                      )
-                  })}
-               </select>
+                  }
+                  <div class="input-group col-lg-3 mb-3">
+                     <div class="input-group-prepend">
+                        <label class="input-group-text" for="place">Place</label>
+                     </div>
+                     <select 
+                        name="place"
+                        onChange={this.handleFilterByPlace}
+                        class="custom-select" 
+                        id="place"
+                     >
+                        <option value="all">All</option>
+                        {this.props.settings.places.map((place, index) => {
+                           return (
+                              <option 
+                                 value={place.toLowerCase()} 
+                                 key="index"
+                                 selected = {place.toLowerCase() === this.props.filters.filterByPlace}
+                              >
+                                 {place}
+                              </option>
+                           )
+                        })}
+                     </select>
+                  </div>
+                  
+                  <div class="input-group col-lg-2 mb-3">
+                     <div class="input-group-prepend">
+                        <label class="input-group-text" for="cleaners">Cleaners</label>
+                     </div>
+                     <select 
+                        onChange={this.handleFilterByName}
+                        name="cleaner"
+                        id="cleaners"
+                        class="custom-select"
+                     >
+                        <option value="all">All</option>
+                        {this.props.settings.cleaners.map((cleaner, index) => {
+                           return (
+                              <option 
+                                 value={cleaner.toLowerCase()} 
+                                 key={index}
+                                 selected = {cleaner.toLowerCase() === this.props.filters.filterByName}
+                              >
+                                 {cleaner}
+                              </option>
+                           )
+                        })}
+                     </select>
+                  </div>
 
-               <label for="cleaner">Name</label>
-               <select 
-                  onChange={this.handleFilterByName}
-                  name="cleaner"
-               >
-                  <option value="all">All</option>
-                  {this.props.settings.cleaners.map((cleaner, index) => {
-                     return (
-                        <option 
-                           value={cleaner.toLowerCase()} 
-                           key={index}
-                           selected = {cleaner.toLowerCase() === this.props.filters.filterByName}
-                        >
-                           {cleaner}
-                        </option>
-                     )
-                  })}
-               </select>
-
-               <label>Date:</label>
-               <DateRangePicker 
-                  startDate={this.props.filters.startDate} // momentPropTypes.momentObj or null,
-                  startDateId={'startDateId'}
-                  endDate={this.props.filters.endDate} // momentPropTypes.momentObj or null,
-                  endDateId={'endDateId'}
-                  onDatesChange={this.onDatesChange} // PropTypes.func.isRequired,
-                  focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-                  onFocusChange={this.onFocusChange} // PropTypes.func.isRequired,
-                  numberOfMonths = {1}
-                  isOutsideRange = {() => false}
-                  showClearDates = {true}
-               />
-            </p>
-            {
-               !hideSort && (<p>
-                  <label for="sort">Sort</label>
-                  <select 
-                     value={this.props.filters.sort.toLowerCase()} 
-                     onChange={this.handleSorting}
-                     name="sort"
-                  >
-                     <option value="asc">ASC</option>
-                     <option value="desc">DESC</option>
-                  </select>
-               </p>)
-            }
+                  <div class="input-group col-md-9 col-lg-5 mb-3">
+                     <div class="input-group-prepend">
+                        <label class="input-group-text" for="cleaners">Date</label>
+                     </div>
+                     <DateRangePicker 
+                        startDate={this.props.filters.startDate} // momentPropTypes.momentObj or null,
+                        startDateId={'startDateId'}
+                        endDate={this.props.filters.endDate} // momentPropTypes.momentObj or null,
+                        endDateId={'endDateId'}
+                        onDatesChange={this.onDatesChange} // PropTypes.func.isRequired,
+                        focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+                        onFocusChange={this.onFocusChange} // PropTypes.func.isRequired,
+                        numberOfMonths = {1}
+                        isOutsideRange = {() => false}
+                        showClearDates = {true}
+                     />
+                  </div>
+               </div> 
+            </div>
          </div>
       )
    }
