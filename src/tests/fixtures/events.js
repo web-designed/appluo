@@ -26,8 +26,8 @@ const events = [
       place: 'Küche',
       id: '1',
       note: 'Alles sauber gemacht',
-      createdAt: moment(0).subtract(4, 'days').valueOf(),
-      cleanedAt: moment(0).subtract(4, 'days').valueOf(),
+      createdAt: moment(0).subtract(40, 'days').valueOf(),
+      cleanedAt: moment(0).subtract(40, 'days').valueOf(),
       comments: [{
             id: '1',
             createdAt: 125,
@@ -46,8 +46,8 @@ const events = [
       place: 'Flur',
       id: '2',
       note: 'Alles sauber gemacht',
-      createdAt: moment(0).add(4, 'days').valueOf(),
-      cleanedAt: moment(0).add(4, 'days').valueOf(),
+      createdAt: moment(0).add(40, 'days').valueOf(),
+      cleanedAt: moment(0).add(40, 'days').valueOf(),
       comments: [{
             id: '1',
             createdAt: 125,
