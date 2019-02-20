@@ -4,7 +4,7 @@ import Navigation from './Navigation'
 
 export const Header = ({ slogan, className }) => (
    <header class="pt-3 bg-secondary">
-      <div class="container text-white">
+      <div class="container-fluid text-white">
          <h1 class="h2 mb-0">Appluo</h1>
          <p>{slogan}</p>
       </div>
