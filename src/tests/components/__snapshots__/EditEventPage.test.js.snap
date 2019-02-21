@@ -1,49 +1,77 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render EditEventPage correctly if event doesnt exist 1`] = `
-<div>
-  <div>
-    <h3>
-      This Cleaning doesn't exist or has been removed
-    </h3>
-    <Link
-      replace={false}
-      to="/"
+<div
+  class="container-fluid"
+>
+  <div
+    class="pt-3 row justify-content-center"
+  >
+    <div
+      class="col-md-6"
     >
-      <button>
+      <h3>
+        This Cleaning doesn't exist or has been removed
+      </h3>
+      <Link
+        class="btn btn-secondary mr-2"
+        replace={false}
+        to="/"
+      >
         Dashboard
-      </button>
-    </Link>
-    <Link
-      replace={false}
-      to="/add"
-    >
-      <button>
+      </Link>
+      <Link
+        class="btn btn-primary"
+        replace={false}
+        to="/add"
+      >
         Add Cleaning
-      </button>
-    </Link>
+      </Link>
+    </div>
   </div>
 </div>
 `;
 
 exports[`should render EditEventPage correctly if event exist 1`] = `
-<div>
-  <div>
-    <h1>
-      Edit your cleaning
-    </h1>
-    <Connect(AddEventForm)
-      cleanedAt={0}
-      cleaner="Kylu"
-      handleSubmit={[Function]}
-      history={
-        Object {
-          "push": [MockFunction],
-        }
-      }
-      note="Alles sauber gemacht"
-      place="Bad"
-    />
+<div
+  class="container-fluid"
+>
+  <div
+    class="pt-3 row justify-content-center"
+  >
+    <div
+      class="col-md-6"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-header"
+        >
+          <h4
+            class="mb-0"
+          >
+            Edit your cleaning
+          </h4>
+        </div>
+        <div
+          class="card-body"
+        >
+          <Connect(AddEventForm)
+            cleanedAt={0}
+            cleaner="Kylu"
+            handleSubmit={[Function]}
+            history={
+              Object {
+                "push": [MockFunction],
+              }
+            }
+            note="Alles sauber gemacht"
+            place="Bad"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
