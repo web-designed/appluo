@@ -5,10 +5,10 @@ import moment from 'moment'
 //*******************************************************
 
    const settingsReducerDefaultState = {
-      wgName: 'Greifswalder',
+      wgName: 'The Cleaning Team',
       slogan: 'Manage your cleaning plan',
-      places: ['Küche', 'Bad', 'Flur'],
-      cleaners: ['Kylu', 'Alex', 'Till', 'Chris'],
+      places: ['Kitchen', 'Bathroom', 'Saloon'],
+      cleaners: ['John', 'Alex', 'Tom', 'Carl'],
       createdAt: moment('2018-12-01'),
       notifications: {
          event: {
