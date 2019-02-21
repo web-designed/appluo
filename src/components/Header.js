@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import Navigation from './Navigation'
 
 export const Header = ({ slogan, className }) => (
@@ -16,4 +17,4 @@ const mapStateToProps = (state) => ({
    slogan: state.settings.slogan
 })
 
-export default connect(mapStateToProps)(Header)
+export default withRouter(connect(mapStateToProps)(Header))
