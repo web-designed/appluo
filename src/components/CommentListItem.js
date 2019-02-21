@@ -8,9 +8,11 @@ const CommentListItem = ({ comment }) => {
       const fromNow = moment(comment.createdAt).from(now)
 
       return (
-         <div>
-            <h3>{comment.commentBody}</h3>
-            <p>{comment.commenter} - {fromNow} </p>
+         <div class="list-group-item">
+            <p>{comment.commentBody}</p>
+            <div class="text-right">
+               <small class="text-secondary">{comment.commenter} {fromNow}</small>
+            </div>
          </div>
       )
    }
