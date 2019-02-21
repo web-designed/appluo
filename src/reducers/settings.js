@@ -8,7 +8,7 @@ import moment from 'moment'
       wgName: 'The Cleaning Team',
       slogan: 'Manage your cleaning plan',
       places: ['Kitchen', 'Bathroom', 'Saloon'],
-      cleaners: ['John', 'Alex', 'Tom', 'Carl'],
+      cleaners: ['John', 'Alex', 'Tom', 'Steve'],
       createdAt: moment('2018-12-01'),
       notifications: {
          event: {
