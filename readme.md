@@ -4,6 +4,8 @@
 
 ### Add your cleaning events, comment, compare
 
+[DEMO](appluo.netlify.com)
+
 # To do's
 1. Connect redux to DB
 2. Add support for multiple cleaning teams
