@@ -13,18 +13,16 @@ export const EventsList = ({ events, eventss } ) => {
          <div class="container-fluid pt-3 pb-3">
             <Sorting hideFilters={[]} />
             { Object.keys(events).map( keyYear => (
-               <div key={keyYear} class="list-group">
-                  { Object.keys(events[keyYear]).map( keyMonth => (
-                     <div>
-                        <div class="list-group-item list-group-item-secondary flex-column align-items-start">
-                           {keyYear} / {keyMonth}
-                        </div>
-                        { events[keyYear][keyMonth].map( event => (
-                           <EventListItem id={event.id} {...event} />
-                        ))}
+               Object.keys(events[keyYear]).map( keyMonth => (
+                  <div class="list-group mb-3">
+                     <div class="list-group-item list-group-item-secondary flex-column align-items-start">
+                        {keyYear} / {keyMonth}
                      </div>
-                  ))}
-               </div>
+                     { events[keyYear][keyMonth].map( event => (
+                        <EventListItem id={event.id} {...event} />
+                     ))}
+                  </div>
+               ))
             ))}
          </div>
       )

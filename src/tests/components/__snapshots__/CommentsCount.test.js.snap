@@ -1,9 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render CommentsCount correctly 1`] = `
-<span>
-  comments: 
-  <span>
+<span
+  class="input-group-text"
+>
+  <img
+    class="mr-1"
+    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4IiB3aWR0aD0iNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbD0iIzZjNzU3ZCIgZD0iTTQzLjk4IDhjMC0yLjIxLTEuNzctNC0zLjk4LTRoLTMyYy0yLjIxIDAtNCAxLjc5LTQgNHYyNGMwIDIuMjEgMS43OSA0IDQgNGgyOGw4IDgtLjAyLTM2eiIvPjxwYXRoIGQ9Ik0wIDBoNDh2NDhoLTQ4eiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg=="
+    width="20"
+  />
+   
+  <span
+    class="badge badge-primary badge-pill"
+  >
     2
   </span>
 </span>
