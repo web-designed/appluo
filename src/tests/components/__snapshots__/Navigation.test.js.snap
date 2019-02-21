@@ -13,7 +13,7 @@ exports[`should render Navigation correctly 1`] = `
       <NavLink
         activeClassName="active"
         aria-current="page"
-        className="nav-link"
+        className="text-white nav-link"
         exact={true}
         to="/"
       >
@@ -26,7 +26,7 @@ exports[`should render Navigation correctly 1`] = `
       <NavLink
         activeClassName="active"
         aria-current="page"
-        className="nav-link"
+        className="text-white nav-link"
         to="/add"
       >
         Add Event
@@ -38,10 +38,10 @@ exports[`should render Navigation correctly 1`] = `
       <NavLink
         activeClassName="active"
         aria-current="page"
-        className="nav-link"
+        className="text-white nav-link"
         to="/stats"
       >
-        Stats
+        Chart
       </NavLink>
     </li>
   </ul>
