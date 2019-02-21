@@ -5,13 +5,22 @@ exports[`should render the AddEventForm for the Add Event page correctly 1`] = `
   <form
     onSubmit={[Function]}
   >
-    <p>
-      <label
-        htmlFor="cleaner"
+    <div
+      class="input-group mb-2"
+    >
+      <div
+        class="input-group-prepend"
       >
-        Name
-      </label>
+        <label
+          class="input-group-text"
+          for="cleaner"
+        >
+          Name
+        </label>
+      </div>
       <select
+        class="custom-select"
+        id="cleaner"
         name="cleaner"
         onChange={[Function]}
         value="kylu"
@@ -47,14 +56,23 @@ exports[`should render the AddEventForm for the Add Event page correctly 1`] = `
           Chris
         </option>
       </select>
-    </p>
-    <p>
-      <label
-        htmlFor="place"
+    </div>
+    <div
+      class="input-group mb-2"
+    >
+      <div
+        class="input-group-prepend"
       >
-        Wo
-      </label>
+        <label
+          class="input-group-text"
+          for="place"
+        >
+          Place
+        </label>
+      </div>
       <select
+        class="custom-select"
+        id="place"
         name="place"
         onChange={[Function]}
         value="küche"
@@ -84,8 +102,20 @@ exports[`should render the AddEventForm for the Add Event page correctly 1`] = `
           Flur
         </option>
       </select>
-    </p>
-    <p>
+    </div>
+    <div
+      class="input-group mb-2"
+    >
+      <div
+        class="input-group-prepend"
+      >
+        <label
+          class="input-group-text"
+          for="date"
+        >
+          Date
+        </label>
+      </div>
       <withStyles(SingleDatePicker)
         anchorDirection="left"
         appendToBody={false}
@@ -175,25 +205,34 @@ exports[`should render the AddEventForm for the Add Event page correctly 1`] = `
         withFullScreenPortal={false}
         withPortal={false}
       />
-    </p>
-    <p>
-      <label
-        htmlFor="note"
-      >
-        Note
-      </label>
+    </div>
+    <div
+      class="form-group"
+    >
       <textarea
+        class="form-control"
         name="note"
         onChange={[Function]}
-        placeholder="zB: Alles sauber gemacht"
+        placeholder="Add your note"
         value=""
       />
-    </p>
-    <p>
-      <button>
+    </div>
+    <div
+      class="form-group text-right"
+    >
+      <Link
+        class="text-danger mr-2"
+        replace={false}
+        to="/"
+      >
+        Cancel
+      </Link>
+      <button
+        class="btn btn-primary"
+      >
         Submit
       </button>
-    </p>
+    </div>
   </form>
 </div>
 `;
@@ -203,13 +242,22 @@ exports[`should render the AddEventForm for the Edit Event page correctly 1`] = 
   <form
     onSubmit={[Function]}
   >
-    <p>
-      <label
-        htmlFor="cleaner"
+    <div
+      class="input-group mb-2"
+    >
+      <div
+        class="input-group-prepend"
       >
-        Name
-      </label>
+        <label
+          class="input-group-text"
+          for="cleaner"
+        >
+          Name
+        </label>
+      </div>
       <select
+        class="custom-select"
+        id="cleaner"
         name="cleaner"
         onChange={[Function]}
         value="Kylu"
@@ -245,14 +293,23 @@ exports[`should render the AddEventForm for the Edit Event page correctly 1`] = 
           Chris
         </option>
       </select>
-    </p>
-    <p>
-      <label
-        htmlFor="place"
+    </div>
+    <div
+      class="input-group mb-2"
+    >
+      <div
+        class="input-group-prepend"
       >
-        Wo
-      </label>
+        <label
+          class="input-group-text"
+          for="place"
+        >
+          Place
+        </label>
+      </div>
       <select
+        class="custom-select"
+        id="place"
         name="place"
         onChange={[Function]}
         value="bad"
@@ -282,8 +339,20 @@ exports[`should render the AddEventForm for the Edit Event page correctly 1`] = 
           Flur
         </option>
       </select>
-    </p>
-    <p>
+    </div>
+    <div
+      class="input-group mb-2"
+    >
+      <div
+        class="input-group-prepend"
+      >
+        <label
+          class="input-group-text"
+          for="date"
+        >
+          Date
+        </label>
+      </div>
       <withStyles(SingleDatePicker)
         anchorDirection="left"
         appendToBody={false}
@@ -373,25 +442,34 @@ exports[`should render the AddEventForm for the Edit Event page correctly 1`] = 
         withFullScreenPortal={false}
         withPortal={false}
       />
-    </p>
-    <p>
-      <label
-        htmlFor="note"
-      >
-        Note
-      </label>
+    </div>
+    <div
+      class="form-group"
+    >
       <textarea
+        class="form-control"
         name="note"
         onChange={[Function]}
-        placeholder="zB: Alles sauber gemacht"
+        placeholder="Add your note"
         value="Alles sauber gemacht"
       />
-    </p>
-    <p>
-      <button>
+    </div>
+    <div
+      class="form-group text-right"
+    >
+      <Link
+        class="text-danger mr-2"
+        replace={false}
+        to="/"
+      >
+        Cancel
+      </Link>
+      <button
+        class="btn btn-primary"
+      >
         Submit
       </button>
-    </p>
+    </div>
   </form>
 </div>
 `;

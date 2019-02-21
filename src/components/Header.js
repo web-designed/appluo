@@ -1,16 +1,20 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import Navigation from './Navigation'
 
-const Header = () => (
-   <header>
-      <h1>Appluo</h1>
-      <p>Für eine schöne ambiente in der WG: {
-         //<strong>{this.state.wgName}</strong>
-      }</p>
-      <div>
-         <NavLink to="/" exact={true}>Dashboard</NavLink> | <NavLink to="/add">Add Event</NavLink> | <NavLink to="/stats">Stats</NavLink>
+export const Header = ({ slogan, className }) => (
+   <header class="pt-3 bg-secondary">
+      <div class="container-fluid text-white">
+         <h1 class="h2 mb-0">Appluo</h1>
+         <p>{slogan}</p>
       </div>
+      <Navigation />
    </header>
 )
 
-export default Header
+const mapStateToProps = (state) => ({
+   slogan: state.settings.slogan
+})
+
+export default withRouter(connect(mapStateToProps)(Header))

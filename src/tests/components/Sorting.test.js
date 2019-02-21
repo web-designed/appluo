@@ -57,7 +57,7 @@ test('should handle on focusChange', () => {
 
 test('should handle filterByPlace', () => {
    const value = 'bad'
-   wrapper.find('select').at(0).simulate('change', {
+   wrapper.find('select').at(1).simulate('change', {
       target: { value }
    })
    expect(filterByPlace).toHaveBeenLastCalledWith(value)
@@ -65,7 +65,7 @@ test('should handle filterByPlace', () => {
 
 test('should handle filterByName', () => {
    const value = 'kylu'
-   wrapper.find('select').at(1).simulate('change', {
+   wrapper.find('select').at(2).simulate('change', {
       target: { value }
    })
    expect(filterByName).toHaveBeenLastCalledWith(value)
@@ -73,7 +73,7 @@ test('should handle filterByName', () => {
 
 test('should handle the sortDesc', () => {
    const value = 'desc'
-   wrapper.find('select').at(2).simulate('change', {
+   wrapper.find('select').at(0).simulate('change', {
       target: { value }
    })
    expect(sortDesc).toHaveBeenCalledTimes(1)

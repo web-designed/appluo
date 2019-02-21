@@ -6,6 +6,7 @@ import moment from 'moment'
 
    const settingsReducerDefaultState = {
       wgName: 'Greifswalder',
+      slogan: 'Manage your cleaning plan',
       places: ['Küche', 'Bad', 'Flur'],
       cleaners: ['Kylu', 'Alex', 'Till', 'Chris'],
       createdAt: moment('2018-12-01'),

@@ -8,12 +8,14 @@ import { addEvent, addComment } from './actions/events'
 import { setTextFilter, filterByName, filterByPlace } from './actions/filters'
 import moment from 'moment'
 import 'react-dates/lib/css/_datepicker.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './styles/datePicker_custom.css'
 
 
    const store = configStore()
 
    const event0 = store.dispatch(addEvent({ id:'0', cleanedAt:moment('2018-01-01').valueOf(), createdAt:moment().valueOf(), note:'test', cleaner: 'kylu', place: 'Küche'}))
-   const event1 = store.dispatch(addEvent({ id:'1', cleanedAt:moment('2018-12-10').valueOf(), createdAt:moment().valueOf(), note:'test', cleaner: 'kylu', place: 'Küche'}))
+   const event1 = store.dispatch(addEvent({ id:'1', cleanedAt:moment('2018-12-10').valueOf(), createdAt:moment().valueOf(), note:'lorem ipsum text', cleaner: 'kylu', place: 'Küche'}))
    const event2 = store.dispatch(addEvent({ cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'test2', cleaner: 'Kylu', place: 'Küche'}))
    const event3 = store.dispatch(addEvent({ cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'test3', cleaner: 'till', place: 'Flur'}))
    const event4 = store.dispatch(addEvent({ cleanedAt:moment().valueOf(), createdAt:moment().valueOf(), note:'my note', cleaner: 'chris', place: 'Bad'}))

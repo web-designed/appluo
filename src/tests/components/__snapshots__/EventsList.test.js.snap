@@ -1,108 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render EventsList correctly 1`] = `
-<div>
+<div
+  class="container-fluid pt-3 pb-3"
+>
   <Connect(Sorting)
     hideFilters={Array []}
   />
-  <div
-    key="0"
-  >
-    <h3>
-      1970-01
-    </h3>
-    <Connect(EventListItem)
-      cleanedAt={0}
-      cleaner="Kylu"
-      comments={
-        Array [
-          Object {
-            "commentBody": "this is my comment",
-            "commenter": "Kylu",
-            "createdAt": 125,
-            "id": "1",
-          },
-          Object {
-            "commentBody": "this is my another comment",
-            "commenter": "Chris",
-            "createdAt": 130,
-            "id": "2",
-          },
-        ]
-      }
-      createdAt={0}
-      id="0"
-      note="Alles sauber gemacht"
-      place="Bad"
-    />
-  </div>
-  <div
-    key="1"
-  >
-    <h3>
-      1969-12
-    </h3>
-    <Connect(EventListItem)
-      cleanedAt={-345600000}
-      cleaner="Alex"
-      comments={
-        Array [
-          Object {
-            "commentBody": "this is my comment",
-            "commenter": "Kylu",
-            "createdAt": 125,
-            "id": "1",
-          },
-          Object {
-            "commentBody": "this is my another comment",
-            "commenter": "Chris",
-            "createdAt": 130,
-            "id": "2",
-          },
-        ]
-      }
-      createdAt={-345600000}
-      id="1"
-      note="Alles sauber gemacht"
-      place="Küche"
-    />
-  </div>
-  <div
-    key="2"
-  >
-    <h3>
-      1970-01
-    </h3>
-    <Connect(EventListItem)
-      cleanedAt={345600000}
-      cleaner="Till"
-      comments={
-        Array [
-          Object {
-            "commentBody": "this is my comment",
-            "commenter": "Kylu",
-            "createdAt": 125,
-            "id": "1",
-          },
-          Object {
-            "commentBody": "this is my another comment",
-            "commenter": "Chris",
-            "createdAt": 130,
-            "id": "2",
-          },
-        ]
-      }
-      createdAt={345600000}
-      id="2"
-      note="Alles sauber gemacht"
-      place="Flur"
-    />
-  </div>
+  <h3>
+    No Events provided
+  </h3>
 </div>
 `;
 
-exports[`should render EventsList correctly ifno events provided 1`] = `
-<div>
+exports[`should render EventsList correctly if no events provided 1`] = `
+<div
+  class="container-fluid pt-3 pb-3"
+>
+  <Connect(Sorting)
+    hideFilters={Array []}
+  />
   <h3>
     No Events provided
   </h3>

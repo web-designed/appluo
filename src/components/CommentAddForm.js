@@ -43,17 +43,21 @@ export class CommentAddForm extends React.Component {
 
    render(){
       return (
-         <div>
-            <h3>Add comment</h3>
+         <div class="pt-3">
             <form onSubmit={this.handleSubmitComment}>
-               <textarea 
-                  name="commentBody"
-                  value={this.state.commentBody}
-                  onChange={this.onCommentBodyChange}
-                  placeholder="Add your comment"
-               ></textarea>
-               {this.state.error && <p><span>{this.state.error}</span></p>}
-               <p><button>Add Comment</button></p>
+               <div class="form-group">
+                  <textarea 
+                     class="form-control bg-light"
+                     name="commentBody"
+                     value={this.state.commentBody}
+                     onChange={this.onCommentBodyChange}
+                     placeholder="Add your comment"
+                  ></textarea>
+                  {this.state.error && <p class="text-danger"><small>{this.state.error}</small></p>}
+               </div>
+               <div class="form-group">
+                  <button class="btn btn-secondary">Add Comment</button>
+               </div>
             </form>
          </div>
       )

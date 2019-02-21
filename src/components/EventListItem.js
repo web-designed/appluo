@@ -3,16 +3,25 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 import CommentCount from './CommentCount'
+import { iconNote } from '../assets/images'
 
 export const EventListItem = ({ cleaner, place, cleanedAt, id, comments, note }) => {
    return (
-      <div>
-         <Link to={`/view/${id}`}>
+      <Link to={`/view/${id}`} class="list-group-item flex-column align-items-start list-group-item-action">
+         <div class="d-flex justify-content-between align-items-center">
             <div>
-               <p>{place} | <strong>{cleaner}</strong> | {moment(cleanedAt).format('YYYY-MM-DD')} | <CommentCount commentsCount={comments.length}/> {note && <span> | N</span>}</p>
+               <h6 class="mb-0">{place} - <span class="badge badge-secondary">{cleaner}</span> - {moment(cleanedAt).format('YYYY/MM/DD')}</h6>
             </div>
-         </Link>
-      </div>
+            <div class="input-group w-auto">
+               <div class="input-group-prepend">
+                  { note && <span class="input-group-text"><img width="15" src={iconNote} /></span> }
+               </div>
+               <div class="input-group-append">
+                  <CommentCount commentsCount={comments.length}/>
+               </div>
+            </div>
+         </div>
+      </Link>
    )
 }
 
