@@ -15,33 +15,36 @@ class StatsPage extends React.Component {
    render(){
 
       return (
-         <div>
-            <h1>Stats Page</h1>
+         <div class="container-fluid pt-3">
             <Sorting hideFilters={['sort']} defaultDates="true" />
-            <div className={"chart-container"}>
-               {
-                  <Chart
-                     width={'100%'}
-                     height={'400px'}
-                     chartType="Bar"
-                     loader={<div>Loading Chart</div>}
-                     data={this.props.chartData}
-                     options={{
-                        // Material design options
-                        chart: {
-                           title: this.props.filters.filterByPlace.toUpperCase()
-                        },
-                        animation: {
-                           startup: true,
-                           easing: 'linear',
-                           duration: 15,
-                        },
-                        isStacked: true
-                     }}
-                     // For tests
-                     rootProps={{ 'data-testid': '2' }}
-                  />
-               }
+            <div class="card">
+               <div class="card-body">
+                  <div className={"chart-container"}>
+                     {
+                        <Chart
+                           width={'100%'}
+                           height={'400px'}
+                           chartType="Bar"
+                           loader={<div>Loading Chart</div>}
+                           data={this.props.chartData}
+                           options={{
+                              // Material design options
+                              chart: {
+                                 title: this.props.filters.filterByPlace.toUpperCase()
+                              },
+                              animation: {
+                                 startup: true,
+                                 easing: 'linear',
+                                 duration: 15,
+                              },
+                              isStacked: true
+                           }}
+                           // For tests
+                           rootProps={{ 'data-testid': '2' }}
+                        />
+                     }
+                  </div>
+               </div>
             </div>
          </div>
       )
