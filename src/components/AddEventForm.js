@@ -4,6 +4,7 @@ import uuid from 'uuid'
 import moment from 'moment'
 import 'react-dates/initialize'
 import { SingleDatePicker } from 'react-dates'
+import { Link } from 'react-router-dom'
 
 export class AddEventForm extends React.Component {
 
@@ -59,9 +60,13 @@ export class AddEventForm extends React.Component {
       return(
          <div>
             <form onSubmit={this.handleSubmit}>
-               <p>
-                  <label htmlFor="cleaner">Name</label>
+               <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                     <label class="input-group-text" for="cleaner">Name</label>
+                  </div>
                   <select 
+                     class="custom-select" 
+                     id="cleaner"
                      name="cleaner" 
                      onChange={this.onCleanerChange}
                      value={this.state.cleaner}
@@ -72,10 +77,14 @@ export class AddEventForm extends React.Component {
                         })
                      }
                   </select>
-               </p>
-               <p>
-                  <label htmlFor="place">Wo</label>
+               </div>
+               <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                     <label class="input-group-text" for="place">Place</label>
+                  </div>
                   <select 
+                     class="custom-select" 
+                     id="place"
                      name="place" 
                      onChange={this.onPlaceChange}
                      value={this.state.place.toLowerCase()}
@@ -86,8 +95,11 @@ export class AddEventForm extends React.Component {
                         })
                      }
                   </select>
-               </p>
-               <p>
+               </div>
+               <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                     <label class="input-group-text" for="date">Date</label>
+                  </div>
                   <SingleDatePicker 
                      date={this.state.date}
                      onDateChange={this.onDateChange}
@@ -96,17 +108,20 @@ export class AddEventForm extends React.Component {
                      numberOfMonths={1}
                      isOutsideRange={() => false}
                   />
-               </p>
-               <p>
-                  <label htmlFor="note">Note</label>
+               </div>
+               <div class="form-group">
                   <textarea 
+                     class="form-control"
                      value={this.state.note}
                      name="note" 
-                     placeholder="zB: Alles sauber gemacht"
+                     placeholder="Add your note"
                      onChange={this.onNoteChange}
                   ></textarea>
-               </p>
-               <p><button>Submit</button></p>
+               </div>
+               <div class="form-group text-right">
+                  <Link class="text-danger mr-2" to={'/'}>Cancel</Link>
+                  <button class="btn btn-primary">Submit</button>
+               </div>
             </form>
          </div>
       )
