@@ -68,6 +68,6 @@ module.exports = (env) => {
          contentBase: path.join(__dirname, 'public'),
          historyApiFallback: true
       },
-      devtool: 'cheap-module-eval-source-map'
+      devtool: isProduction ? 'source-map' : 'inline-source-map',
    }
 }
