@@ -4,7 +4,7 @@
 
 ### Add your cleaning events, comment, compare
 
-[DEMO](appluo.netlify.com)
+[DEMO](https://appluo.netlify.com/)
 
 # To do's
 1. Connect redux to DB
