@@ -10,7 +10,7 @@
          case 'REMOVE_EVENT':
             return state.filter(({ id }) => id !== action.id)
          case 'EDIT_EVENT':
-            return state.map((event) => {
+            return state.map( event => {
                if(event.id === action.id) {
                   return {
                      ...event,
@@ -32,7 +32,7 @@
                }
             })
          case 'REMOVE_COMMENT':
-            return state.map((event) => {
+            return state.map( event => {
                if(event.id === action.eventId){
                   return {
                      ...event,
@@ -45,7 +45,7 @@
                }
             })
          case 'EDIT_COMMENT':
-            return state.map((event) => {
+            return state.map( event => {
                if(event.id === action.eventId){
                   return {
                      ...event,

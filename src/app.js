@@ -43,12 +43,11 @@ import './styles/datePicker_custom.css'
    // store.dispatch(setStartDate(20))
    // store.dispatch(setEndDate(10000))
    store.dispatch(addComment(event1.event.id, { commentBody: 'Good Job man!', commenter: 'John' }))
+   store.dispatch(addComment(event1.event.id, { commentBody: 'The pleasure is all mine!', commenter: 'Tom' }))
    store.dispatch(addComment(event4.event.id, { commentBody: 'Hmmmm the kitchen sink?', commenter: 'Alex' }))
    store.dispatch(addComment(event2.event.id, { commentBody: 'Thanks for clening Tom', commenter: 'John' }))
    store.dispatch(addComment(event2.event.id, { commentBody: 'No problem man!', commenter: 'Tom' }))
    store.dispatch(addComment(event3.event.id, { commentBody: 'Finaly everything is shining', commenter: 'Tom' }))
-   // store.dispatch(removeComment(event1.event.id, event1.event.comments[0].id))
-   // store.dispatch(editComment(event1.event.id, event1.event.comments[0].id, { commentBody: ' tes tes test' }))
 
    // store.subscribe(()=> {
    //    console.log(store.getState())

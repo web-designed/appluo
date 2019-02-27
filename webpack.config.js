@@ -21,32 +21,35 @@ module.exports = (env) => {
          rules: [{
             loader: 'babel-loader',
             test: /\.js$/,
-            exclude: /node_modules/
-         }, {
-            test:/\.scss$/,
-            use: CSSExtract.extract({
-               use: [
-                  {
-                     loader: 'css-loader',
-                     options: {
-                        sourceMap: true
-                     }
-                  },
-                  {
-                     loader: "postcss-loader",
-                     options: {
-                        sourceMap: true
-                     }
-                  },
-                  {
-                     loader:'sass-loader',
-                     options: {
-                        sourceMap: true
-                     }
-                  }
-               ]
-            })
-         }, {
+            exclude: /node_modules/,
+            include: path.resolve(__dirname, 'src')
+         }, 
+         // {
+         //    test:/\.scss$/,
+         //    use: CSSExtract.extract({
+         //       use: [
+         //          {
+         //             loader: 'css-loader',
+         //             options: {
+         //                sourceMap: true
+         //             }
+         //          },
+         //          {
+         //             loader: "postcss-loader",
+         //             options: {
+         //                sourceMap: true
+         //             }
+         //          },
+         //          {
+         //             loader:'sass-loader',
+         //             options: {
+         //                sourceMap: true
+         //             }
+         //          }
+         //       ]
+         //    })
+         // }, 
+         {
             test: /\.css$/,
             use: [
                {
