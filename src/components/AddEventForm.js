@@ -12,9 +12,9 @@ export class AddEventForm extends React.Component {
       date: this.props.cleanedAt ? moment(this.props.cleanedAt) : moment(),
       focused: false,
       note: this.props.note ? this.props.note : '',
-      place: this.props.place ? this.props.place : 'küche',
+      place: this.props.place ? this.props.place : this.props.settings.places[0],
       error: '',
-      cleaner: this.props.cleaner ? this.props.cleaner : 'kylu',
+      cleaner: this.props.cleaner ? this.props.cleaner : this.props.settings.cleaners[0],
    }
 
    onCleanerChange = (e) => {
@@ -57,6 +57,8 @@ export class AddEventForm extends React.Component {
 
    render(){
 
+      console.log(this.props)
+
       return(
          <div>
             <form onSubmit={this.handleSubmit}>
@@ -69,11 +71,11 @@ export class AddEventForm extends React.Component {
                      id="cleaner"
                      name="cleaner" 
                      onChange={this.onCleanerChange}
-                     value={this.state.cleaner}
+                     value={this.state.cleaner.toLowerCase()}
                   >
                      {
                         this.props.settings.cleaners.map( cleaner => {
-                           return <option value={cleaner.toLowerCase()} key={cleaner}>{cleaner}</option>
+                           return <option value={cleaner.toLowerCase()} key={cleaner.toLowerCase()}>{cleaner}</option>
                         })
                      }
                   </select>
