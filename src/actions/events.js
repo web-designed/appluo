@@ -7,29 +7,6 @@ import database from '../firebase/firebase'
 // EVENTS ACTION GENERATORS
 //*******************************************************
 
-// export const addEvent = (
-//    {
-//       note = '', 
-//       cleaner = 'unknown', 
-//       cleanedAt = moment().valueOf(),
-//       createdAt = moment().valueOf(),
-//       place = '',
-//       comments = [],
-//       id = uuid()
-//    } = {}) => ({
-//       type:'ADD_EVENT',
-//       event: {
-//          id,
-//          note,
-//          cleaner,
-//          place,
-//          createdAt,
-//          cleanedAt,
-//          comments
-//       }
-//    }
-// )
-
 export const addEvent = (event) => ({
    type:'ADD_EVENT',
    event

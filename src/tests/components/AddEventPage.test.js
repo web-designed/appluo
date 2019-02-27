@@ -3,12 +3,12 @@ import { shallow } from 'enzyme'
 import events from '../fixtures/events'
 import { AddEventPage } from '../../components/AddEventPage'
 
-let wrapper, addEvent, history
+let wrapper, startAddEvent, history
 
 beforeEach(() => {
-   addEvent = jest.fn()
+   startAddEvent = jest.fn()
    history = { push: jest.fn() }
-   wrapper = shallow(<AddEventPage addEvent={addEvent} history={history} />)
+   wrapper = shallow(<AddEventPage startAddEvent={startAddEvent} history={history} />)
 })
 
 test('should render the AddEventPage correctly', () => {
@@ -18,5 +18,5 @@ test('should render the AddEventPage correctly', () => {
 test('should handle onSubmit', () => {
    wrapper.find('Connect(AddEventForm)').prop('handleSubmit')(events[1])
    expect(history.push).toHaveBeenLastCalledWith('/')
-   expect(addEvent).toHaveBeenLastCalledWith(events[1])
+   expect(startAddEvent).toHaveBeenLastCalledWith(events[1])
 })

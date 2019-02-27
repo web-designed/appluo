@@ -23,34 +23,34 @@ exports[`should render the AddEventForm for the Add Event page correctly 1`] = `
         id="cleaner"
         name="cleaner"
         onChange={[Function]}
-        value="kylu"
+        value="all"
       >
         <option
-          key="All"
+          key="all"
           value="all"
         >
           All
         </option>
         <option
-          key="Kylu"
+          key="kylu"
           value="kylu"
         >
           Kylu
         </option>
         <option
-          key="Alex"
+          key="alex"
           value="alex"
         >
           Alex
         </option>
         <option
-          key="Till"
+          key="till"
           value="till"
         >
           Till
         </option>
         <option
-          key="Chris"
+          key="chris"
           value="chris"
         >
           Chris
@@ -75,7 +75,7 @@ exports[`should render the AddEventForm for the Add Event page correctly 1`] = `
         id="place"
         name="place"
         onChange={[Function]}
-        value="küche"
+        value="all"
       >
         <option
           key="All"
@@ -260,34 +260,34 @@ exports[`should render the AddEventForm for the Edit Event page correctly 1`] = 
         id="cleaner"
         name="cleaner"
         onChange={[Function]}
-        value="Kylu"
+        value="kylu"
       >
         <option
-          key="All"
+          key="all"
           value="all"
         >
           All
         </option>
         <option
-          key="Kylu"
+          key="kylu"
           value="kylu"
         >
           Kylu
         </option>
         <option
-          key="Alex"
+          key="alex"
           value="alex"
         >
           Alex
         </option>
         <option
-          key="Till"
+          key="till"
           value="till"
         >
           Till
         </option>
         <option
-          key="Chris"
+          key="chris"
           value="chris"
         >
           Chris
