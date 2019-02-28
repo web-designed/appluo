@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import { CommentAddForm } from '../../components/CommentAddForm'
 import settings from '../fixtures/settings'
 
-let wrapper, addComment, form, currentEventId, value, startAddComment
+let wrapper, startAddComment, form, currentEventId, value
 
 beforeEach(() => {
    currentEventId = '1'

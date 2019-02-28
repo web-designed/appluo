@@ -1,7 +1,7 @@
 import React from 'react'
 import uuid from 'uuid'
 import { connect } from 'react-redux'
-import { startAddComment } from '../actions/events'
+import { startAddComment } from '../actions/comments'
 import moment from 'moment'
 
 export class CommentAddForm extends React.Component {

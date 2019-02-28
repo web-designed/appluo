@@ -1,4 +1,4 @@
-import { removeEvent, editEvent, removeComment, editComment, addComment, addEvent, startAddEvent } from '../../actions/events'
+import { removeEvent, editEvent, addEvent, startAddEvent } from '../../actions/events'
 import events from '../fixtures/events'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
@@ -10,7 +10,27 @@ const createMockStore = configureMockStore([thunk])
 // Event tests
 //*******************************************************
 
-   test('should set up and add event action object', () => {
+   test('should set up and REMOVE_EVENT action object', () => {
+      const action = removeEvent('123abc')
+      expect(action).toEqual({
+         type: 'REMOVE_EVENT',
+         id: '123abc'
+      })
+   })
+
+   test('should set up and EDIT_EVENT action object', () => {
+      const update = {
+         note: 'test'
+      }
+      const action = editEvent('123abc', update)
+      expect(action).toEqual({
+         type: 'EDIT_EVENT',
+         id: '123abc',
+         update
+      })
+   })
+
+   test('should set up and ADD_EVENT action object', () => {
       const action = addEvent(events[0])
       expect(action).toEqual({
          type:'ADD_EVENT',
@@ -73,67 +93,6 @@ const createMockStore = configureMockStore([thunk])
             place: ''
          })
          done()
-      })
-   })
-
-//*******************************************************
-// Comment tests
-//*******************************************************
-
-   test('should set up an remove event action object', () => {
-      const action = removeEvent('123abc')
-      expect(action).toEqual({
-         type: 'REMOVE_EVENT',
-         id: '123abc'
-      })
-   })
-
-   test('should set up an edit event action object', () => {
-      const update = {
-         note: 'test'
-      }
-      const action = editEvent('123abc', update)
-      expect(action).toEqual({
-         type: 'EDIT_EVENT',
-         id: '123abc',
-         update
-      })
-   })
-
-   test('should set up an remove comment action object', () => {
-      const action = removeComment('123abc', '123abc')
-      expect(action).toEqual({
-         type: 'REMOVE_COMMENT',
-         eventId: '123abc',
-         commentId: '123abc'
-      })
-   })
-
-   test('should set up an edit comment action object', () => {
-      const update = {
-         commentBody: 'test'
-      }
-      const action = editComment('123abc', '123abc', update)
-      expect(action).toEqual({
-         type: 'EDIT_COMMENT',
-         eventId: '123abc',
-         commentId: '123abc',
-         update    
-      })
-   })
-
-   test('should set up an add comment action object', () => {
-      const comment = {
-         commentBody: 'test',
-         commenter: 'kylu'
-      }
-      const eventId = '123abc'
-
-      const action = addComment(eventId, comment)
-      expect(action).toEqual({
-         type: 'ADD_COMMENT',
-         eventId: eventId,
-         comment
       })
    })
 
