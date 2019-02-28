@@ -1,5 +1,10 @@
 import { removeEvent, editEvent, removeComment, editComment, addComment, addEvent, startAddEvent } from '../../actions/events'
 import events from '../fixtures/events'
+import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
+import database from '../../firebase/firebase';
+
+const createMockStore = configureMockStore([thunk])
 
 test('should set up an remove event action object', () => {
    const action = removeEvent('123abc')
@@ -69,18 +74,60 @@ test('should set up an add event action object', () => {
    })
 })
 
-// test('should set up an add event action object with default values', () => {
-//    const action = addEvent()
-//    expect(action).toEqual({
-//       type:'ADD_EVENT',
-//       event: {
-//          id: expect.any(String),
-//          createdAt: expect.any(Number),
-//          cleanedAt: expect.any(Number),
-//          comments: [],
-//          note: '', 
-//          cleaner: 'unknown', 
-//          place: ''
-//       }
-//    })
-// })
+test('should add the event to database and the redux store', (done) => { // async test
+
+   const store = createMockStore({})
+   const eventData = {
+      ...events[2]
+   }
+
+   store.dispatch(startAddEvent(eventData))
+   .then(() => {
+      const actions = store.getActions()
+      expect(actions[0]).toEqual({
+         type: 'ADD_EVENT',
+         event: {
+            ...events[2],
+            id: expect.any(String)
+         }
+      })
+      return database.ref(`events/${actions[0].event.id}`).once('value')
+   })
+   .then(snapshot => {
+      expect(snapshot.val()).toEqual(events[2])
+      done()
+   })
+})
+
+test('should add the event to database and the redux store with default values', (done) => { // async test
+
+   const store = createMockStore({})
+   const eventData = {}
+
+   store.dispatch(startAddEvent(eventData))
+   .then(() => {
+      const actions = store.getActions()
+      expect(actions[0]).toEqual({
+         type: 'ADD_EVENT',
+         event: {
+            note: '', 
+            cleaner: 'unknown', 
+            cleanedAt: 0,
+            createdAt: 0,
+            place: '',
+            id: expect.any(String)
+         }
+      })
+      return database.ref(`events/${actions[0].event.id}`).once('value')
+   })
+   .then(snapshot => {
+      expect(snapshot.val()).toEqual({
+         note: '', 
+         cleaner: 'unknown', 
+         cleanedAt: 0,
+         createdAt: 0,
+         place: ''
+      })
+      done()
+   })
+})

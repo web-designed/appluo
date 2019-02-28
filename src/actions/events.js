@@ -17,15 +17,14 @@ export const startAddEvent = (eventData = {}) => {
       const {
          note = '', 
          cleaner = 'unknown', 
-         cleanedAt = moment().valueOf(),
-         createdAt = moment().valueOf(),
-         place = '',
-         comments = []
+         cleanedAt = 0,
+         createdAt = 0,
+         place = ''
       } = eventData
 
-      const event = { note, cleaner, cleanedAt, createdAt, place, comments }
+      const event = { note, cleaner, cleanedAt, createdAt, place }
 
-      database.ref('events').push(event).then((ref) => {
+      return database.ref('events').push(event).then((ref) => { // add return to chain promises in the tests
          dispatch(addEvent({
             id: ref.key,
             ...event

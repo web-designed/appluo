@@ -23,9 +23,16 @@
          case 'ADD_COMMENT':
             return state.map((event) => {
                if(event.id === action.eventId){
-                  return {
-                     ...event,
-                     comments: [...event.comments, action.comment]
+                  if(event.comments){
+                     return {
+                        ...event,
+                        comments: [...event.comments, action.comment]
+                     }
+                  } else {
+                     return {
+                        ...event,
+                        comments: [action.comment]
+                     }
                   }
                } else {
                   return event
