@@ -3,12 +3,12 @@ import { shallow } from 'enzyme'
 import { CommentAddForm } from '../../components/CommentAddForm'
 import settings from '../fixtures/settings'
 
-let wrapper, addComment, form, currentEventId, value
+let wrapper, addComment, form, currentEventId, value, startAddComment
 
 beforeEach(() => {
    currentEventId = '1'
-   addComment = jest.fn()
-   wrapper = shallow(<CommentAddForm currentEventId={currentEventId} addComment={addComment} notifications={settings.notifications.comment} />)
+   startAddComment = jest.fn()
+   wrapper = shallow(<CommentAddForm currentEventId={currentEventId} startAddComment={startAddComment} notifications={settings.notifications.comment} />)
    form = wrapper.find('form')
    value = 'my new comment'
 })
@@ -42,7 +42,7 @@ test('should handle handleSubmitComment', () => {
       commentBody: value,
       commenter: 'kylu'
    }
-   expect(addComment).toHaveBeenLastCalledWith('1', newComment)
+   expect(startAddComment).toHaveBeenLastCalledWith(currentEventId, newComment)
    expect(wrapper.state('error')).toBe('')
    expect(wrapper.state('commentBody')).toBe('')
 })
