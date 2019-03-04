@@ -2,10 +2,13 @@ import { removeComment, editComment, addComment, startAddComment } from '../../a
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import database from '../../firebase/firebase';
+import events from '../fixtures/events'
 
 //*******************************************************
 // Comment tests
 //*******************************************************
+
+   const createMockStore = configureMockStore([thunk])
 
    test('should set up and REMOVE_COMMENT action object', () => {
       const action = removeComment('123abc', '123abc')
@@ -44,3 +47,4 @@ import database from '../../firebase/firebase';
       })
    })
 
+   

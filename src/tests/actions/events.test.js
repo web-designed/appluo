@@ -1,4 +1,5 @@
 import { setEvents, startRemoveEvent, removeEvent, editEvent, addEvent, startAddEvent, startEditEvent } from '../../actions/events'
+import { startAddComment } from '../../actions/comments'
 import events from '../fixtures/events'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
@@ -41,7 +42,12 @@ const createMockStore = configureMockStore([thunk])
             type: 'REMOVE_EVENT',
             id: events[0].id
          })
-         done()
+         return database.ref(`/events/${events[0].id}`).once('value')
+         .then( snapshot => {
+            console.log(snapshot.val())
+            expect(snapshot.val()).toBeFalse()
+            done()
+         })
       }) 
    })
 
@@ -70,7 +76,6 @@ const createMockStore = configureMockStore([thunk])
             update
          })
       })
-
    })
 
    test('should set up and ADD_EVENT action object', () => {
@@ -147,6 +152,35 @@ const createMockStore = configureMockStore([thunk])
       expect(action).toEqual({
          type: 'SET_EVENTS',
          events
+      })
+   })
+
+   test('should add comment to the DB and store', (done) => {
+      const store = createMockStore({})
+      const comment = {
+         ...events[0].comments[0]
+      }
+      delete comment.id
+
+      store.dispatch(startAddComment(events[0].id, comment))
+      .then(() => {
+         const actions = store.getActions()
+         expect(actions[0]).toEqual({
+            type: 'ADD_COMMENT',
+            eventId: events[0].id,
+            comment: {
+               ...comment,
+               createdAt: expect.any(Number),
+               id: expect.any(String)
+            }
+         })
+         return database.ref(`/events/${events[0].id}/comments/${actions[0].comment.id}`).once('value')
+      }).then( snapshot => {
+         expect(snapshot.val()).toEqual({
+            ...comment,
+            createdAt: expect.any(Number)
+         })
+         done()
       })
    })
 

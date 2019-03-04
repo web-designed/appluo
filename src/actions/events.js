@@ -16,9 +16,22 @@ import database from '../firebase/firebase'
          return database.ref('events').once('value').then((snapshot) => {
             const events = []
             snapshot.forEach( childSnapshot => {
+               const hasComments = childSnapshot.child('comments').exists()
+               const comments = []
+               if(hasComments){
+                  const commentsData = childSnapshot.child('comments')
+                  commentsData.forEach(childSnapshot => {
+                     comments.push({
+                        id: childSnapshot.key,
+                        ...childSnapshot.val()
+                     })
+                  })
+               }
+
                events.push({
                   id: childSnapshot.key,
-                  ...childSnapshot.val()
+                  ...childSnapshot.val(),
+                  comments
                })
             })
             dispatch(setEvents(events))
