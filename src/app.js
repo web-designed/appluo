@@ -4,8 +4,7 @@ import ReactDOM from 'react-dom'
 import AppRouter from './routers/AppRouter'
 import { Provider } from 'react-redux'
 import configStore from './store/configStore'
-import { addEvent, addComment } from './actions/events'
-import { setTextFilter, filterByName, filterByPlace } from './actions/filters'
+import { startSetEvents } from './actions/events'
 import moment from 'moment'
 import 'react-dates/lib/css/_datepicker.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -19,4 +18,8 @@ const jsx = (
    </Provider>
 )
 
-ReactDOM.render(jsx, document.querySelector('#app'))
+ReactDOM.render(<p>loading...</p>, document.querySelector('#app'))
+
+store.dispatch(startSetEvents()).then(() => {
+   ReactDOM.render(jsx, document.querySelector('#app'))
+})

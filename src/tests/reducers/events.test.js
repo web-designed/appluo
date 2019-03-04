@@ -7,6 +7,15 @@ test('should set the default state', () => {
    expect(state).toEqual([])
 })
 
+test('should set the events', () => {
+   const action = {
+      type: 'SET_EVENTS',
+      events
+   }
+   const state = eventsReducer(undefined, action)
+   expect(state).toEqual(events)
+})
+
 test('should add an event', () => {
    const action = {
       type: 'ADD_EVENT',

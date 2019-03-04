@@ -1,4 +1,4 @@
-import { removeEvent, editEvent, addEvent, startAddEvent } from '../../actions/events'
+import { setEvents, startRemoveEvent, removeEvent, editEvent, addEvent, startAddEvent, startEditEvent } from '../../actions/events'
 import events from '../fixtures/events'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
@@ -10,12 +10,39 @@ const createMockStore = configureMockStore([thunk])
 // Event tests
 //*******************************************************
 
+   // start with a fresh collection of events in the test DB
+   beforeEach((done) => {
+      const eventsData = {}
+      events.forEach( ({ id, cleaner, place, note, createdAt, cleanedAt }) => {
+         eventsData[id] = {
+            cleaner, 
+            place, 
+            note, 
+            createdAt,
+            cleanedAt
+         }
+      })
+      database.ref('events').set(eventsData).then(() => { done() })
+   })
+
    test('should set up and REMOVE_EVENT action object', () => {
       const action = removeEvent('123abc')
       expect(action).toEqual({
          type: 'REMOVE_EVENT',
          id: '123abc'
       })
+   })
+
+   test('should remove an event from database and store', (done) => {
+      const store = createMockStore({})
+      store.dispatch(startRemoveEvent(events[0].id)).then(() => {
+         const actions = store.getActions()
+         expect(actions[0]).toEqual({
+            type: 'REMOVE_EVENT',
+            id: events[0].id
+         })
+         done()
+      }) 
    })
 
    test('should set up and EDIT_EVENT action object', () => {
@@ -28,6 +55,22 @@ const createMockStore = configureMockStore([thunk])
          id: '123abc',
          update
       })
+   })
+
+   test('should edit an event in the database and store', () => {
+      const store = createMockStore({})
+      const update= {
+         note: 'test note'
+      }
+      store.dispatch(startEditEvent(events[0].id, update)).then(() => {
+         const actions = store.getActions()
+         expect(actions[0]).toEqual({
+            type: 'EDIT_EVENT',
+            id: events[0].id,
+            update
+         })
+      })
+
    })
 
    test('should set up and ADD_EVENT action object', () => {
@@ -44,6 +87,7 @@ const createMockStore = configureMockStore([thunk])
       const eventData = {
          ...events[2]
       }
+      delete eventData.id
 
       store.dispatch(startAddEvent(eventData))
       .then(() => {
@@ -58,7 +102,9 @@ const createMockStore = configureMockStore([thunk])
          return database.ref(`events/${actions[0].event.id}`).once('value')
       })
       .then(snapshot => {
-         expect(snapshot.val()).toEqual(events[2])
+         expect(snapshot.val()).toEqual({
+            ...eventData
+         })
          done()
       })
    })
@@ -93,6 +139,14 @@ const createMockStore = configureMockStore([thunk])
             place: ''
          })
          done()
+      })
+   })
+
+   test('should set up an SET_EVENTS action object', () => {
+      const action = setEvents(events)
+      expect(action).toEqual({
+         type: 'SET_EVENTS',
+         events
       })
    })
 

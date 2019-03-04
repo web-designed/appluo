@@ -3,12 +3,12 @@ import { EditEventPage } from '../../components/EditEventPage'
 import { shallow } from 'enzyme'
 import events from '../fixtures/events'
 
-let wrapper, history, editEvent
+let wrapper, history, startEditEvent
 
 beforeEach(() => {
-   editEvent = jest.fn()
+   startEditEvent = jest.fn()
    history = { push: jest.fn() }
-   wrapper = shallow(<EditEventPage event={events[0]} history={history} editEvent={editEvent} />)
+   wrapper = shallow(<EditEventPage event={events[0]} history={history} startEditEvent={startEditEvent} />)
 })
 
 test('should render EditEventPage correctly if event doesnt exist', () => {
@@ -23,5 +23,5 @@ test('should render EditEventPage correctly if event exist', () => {
 test('should handle the handleSubmit function', () => {
    wrapper.find('Connect(AddEventForm)').prop('handleSubmit')(events[0])
    expect(history.push).toHaveBeenLastCalledWith('/')
-   expect(editEvent).toHaveBeenLastCalledWith(events[0].id, events[0])
+   expect(startEditEvent).toHaveBeenLastCalledWith(events[0].id, events[0])
 })

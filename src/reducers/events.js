@@ -5,6 +5,8 @@
    const eventsReducerDefaultState = []
    const eventsReducer = (state = eventsReducerDefaultState, action) => {
       switch(action.type){
+         case 'SET_EVENTS':
+            return action.events
          case 'ADD_EVENT':
             return state.concat(action.event)
          case 'REMOVE_EVENT':
