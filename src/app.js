@@ -6,9 +6,8 @@ import { Provider } from 'react-redux'
 import configStore from './store/configStore'
 import { startSetEvents } from './actions/events'
 import moment from 'moment'
-import 'react-dates/lib/css/_datepicker.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/datePicker_custom.css'
+import './styles/styles.scss'
 
 const store = configStore()
 
