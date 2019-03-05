@@ -45,7 +45,7 @@ const createMockStore = configureMockStore([thunk])
          return database.ref(`/events/${events[0].id}`).once('value')
          .then( snapshot => {
             console.log(snapshot.val())
-            expect(snapshot.val()).toBeFalse()
+            expect(snapshot.val()).toBeFalsy()
             done()
          })
       }) 
