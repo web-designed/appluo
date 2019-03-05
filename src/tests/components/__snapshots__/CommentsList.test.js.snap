@@ -1,37 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render an empty list correctly 1`] = `
-<div
-  class="pt-4"
->
-  <h6>
-    Comments
-  </h6>
+<div>
   <div
-    class="list-group"
+    class="pt-4"
   >
-    <CommentListItem
-      comment={
-        Object {
-          "commentBody": "this is my comment",
-          "commenter": "Kylu",
-          "createdAt": 125,
-          "id": "1",
+    <h6>
+      Comments
+    </h6>
+    <div
+      class="list-group"
+    >
+      <CommentListItem
+        comment={
+          Object {
+            "commentBody": "this is my comment",
+            "commenter": "Kylu",
+            "createdAt": 125,
+            "id": "1",
+          }
         }
-      }
-      key="1"
-    />
-    <CommentListItem
-      comment={
-        Object {
-          "commentBody": "this is my another comment",
-          "commenter": "Chris",
-          "createdAt": 130,
-          "id": "2",
+        key="1"
+      />
+      <CommentListItem
+        comment={
+          Object {
+            "commentBody": "this is my another comment",
+            "commenter": "Chris",
+            "createdAt": 130,
+            "id": "2",
+          }
         }
-      }
-      key="2"
-    />
+        key="2"
+      />
+    </div>
   </div>
 </div>
 `;

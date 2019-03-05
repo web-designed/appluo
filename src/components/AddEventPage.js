@@ -1,12 +1,12 @@
 import React from 'react'
 import AddEventForm from './AddEventForm'
-import { addEvent } from '../actions/events'
+import { startAddEvent } from '../actions/events'
 import { connect } from 'react-redux'
 
 export class AddEventPage extends React.Component {
 
    handleSubmit = (event) => {
-      this.props.addEvent(event)
+      this.props.startAddEvent(event)
       this.props.history.push('/')
    }
 
@@ -34,6 +34,6 @@ export class AddEventPage extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-   addEvent: (expense) => dispatch(addEvent(expense))
+   startAddEvent: (expense) => dispatch(startAddEvent(expense))
 })
 export default connect(undefined, mapDispatchToProps)(AddEventPage)

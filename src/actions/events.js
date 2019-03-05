@@ -1,66 +1,93 @@
-import uuid from 'uuid'
-import moment from 'moment'
+
+import database from '../firebase/firebase'
+
 
 //*******************************************************
 // EVENTS ACTION GENERATORS
 //*******************************************************
 
-const addEvent = (
-   {
-      note = '', 
-      cleaner = 'unknown', 
-      cleanedAt = moment().valueOf(),
-      createdAt = moment().valueOf(),
-      place = '',
-      comments = [],
-      id = uuid()
-   } = {}) => ({
-      type:'ADD_EVENT',
-      event: {
-         id,
-         note,
-         cleaner,
-         place,
-         createdAt,
-         cleanedAt,
-         comments
+   export const setEvents = (events) => ({
+      type: 'SET_EVENTS',
+      events
+   })
+
+   export const startSetEvents = (done) => {
+      return (dispatch) => {
+         return database.ref('events').once('value').then((snapshot) => {
+            const events = []
+            snapshot.forEach( childSnapshot => {
+               const hasComments = childSnapshot.child('comments').exists()
+               const comments = []
+               if(hasComments){
+                  const commentsData = childSnapshot.child('comments')
+                  commentsData.forEach(childSnapshot => {
+                     comments.push({
+                        id: childSnapshot.key,
+                        ...childSnapshot.val()
+                     })
+                  })
+               }
+
+               events.push({
+                  id: childSnapshot.key,
+                  ...childSnapshot.val(),
+                  comments
+               })
+            })
+            dispatch(setEvents(events))
+         })
       }
    }
-)
 
-const removeEvent = (id) => ({
-   type: 'REMOVE_EVENT',
-   id
-})
+   export const addEvent = (event) => ({
+      type:'ADD_EVENT',
+      event
+   })
 
-const editEvent = (id, update) => ({
-   type: 'EDIT_EVENT', 
-   id,
-   update
-})
+   export const startAddEvent = (eventData = {}) => {
+      return (dispatch) => {
+         const {
+            note = '', 
+            cleaner = 'unknown', 
+            cleanedAt = 0,
+            createdAt = 0,
+            place = ''
+         } = eventData
 
-const addComment = (eventId, { commentBody, commenter }) => ({
-   type: 'ADD_COMMENT',
-   eventId,
-   comment: {
-      id: uuid(),
-      createdAt: moment().valueOf(),
-      commenter,
-      commentBody
+         const event = { note, cleaner, cleanedAt, createdAt, place }
+
+         return database.ref('events').push(event).then((ref) => { // add return to chain promises in the tests
+            dispatch(addEvent({
+               id: ref.key,
+               ...event
+            }))
+         })
+      }
    }
-})
 
-const removeComment = (eventId, commentId) => ({
-   type:'REMOVE_COMMENT',
-   eventId,
-   commentId
-})
+   export const removeEvent = (id) => ({
+      type: 'REMOVE_EVENT',
+      id
+   })
 
-const editComment = (eventId, commentId, update) => ({
-   type:'EDIT_COMMENT',
-   eventId,
-   commentId,
-   update
-})
+   export const startRemoveEvent = (id) => {
+      return (dispatch) => {
+         return database.ref(`events/${id}`).remove().then(() => {
+            dispatch(removeEvent(id))
+         })
+      }
+   }
 
-export { addEvent, removeEvent, editEvent, addComment, removeComment, editComment }
+   export const editEvent = (id, update) => ({
+      type: 'EDIT_EVENT', 
+      id,
+      update
+   })
+
+   export const startEditEvent = (id, update) => {
+      return (dispatch) => {
+         return database.ref(`/events/${id}`).update(update).then(() => {
+            dispatch(editEvent(id, update))
+         })
+      }
+   }

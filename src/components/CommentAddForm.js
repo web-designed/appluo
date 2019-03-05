@@ -1,7 +1,7 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import uuid from 'uuid'
-import { addComment } from '../actions/events'
+import { connect } from 'react-redux'
+import { startAddComment } from '../actions/comments'
 import moment from 'moment'
 
 export class CommentAddForm extends React.Component {
@@ -31,7 +31,7 @@ export class CommentAddForm extends React.Component {
             commenter: this.state.commenter
          }
          //dispatch the action
-         this.props.addComment(this.props.currentEventId, newComment)
+         this.props.startAddComment(this.props.currentEventId, newComment)
 
          //clear the comment and the validation error
          this.setState(() => ({
@@ -65,7 +65,7 @@ export class CommentAddForm extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-   addComment: (id, newComment) => dispatch(addComment(id, newComment))
+   startAddComment: (id, newComment) => dispatch(startAddComment(id, newComment))
 })
 
 const mapStateToProps = state => ({

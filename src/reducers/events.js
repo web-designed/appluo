@@ -5,6 +5,8 @@
    const eventsReducerDefaultState = []
    const eventsReducer = (state = eventsReducerDefaultState, action) => {
       switch(action.type){
+         case 'SET_EVENTS':
+            return action.events
          case 'ADD_EVENT':
             return state.concat(action.event)
          case 'REMOVE_EVENT':
@@ -23,9 +25,16 @@
          case 'ADD_COMMENT':
             return state.map((event) => {
                if(event.id === action.eventId){
-                  return {
-                     ...event,
-                     comments: [...event.comments, action.comment]
+                  if(event.comments){
+                     return {
+                        ...event,
+                        comments: [...event.comments, action.comment]
+                     }
+                  } else {
+                     return {
+                        ...event,
+                        comments: [action.comment]
+                     }
                   }
                } else {
                   return event

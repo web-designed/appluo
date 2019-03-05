@@ -8,7 +8,7 @@
 
 # To do's
 0. Add settings page
-1. Connect redux to DB
+1. ~~Connect redux to DB~~
 2. Add support for multiple cleaning teams
 3. Fix Sorting ASC and DESC
 4. Add cleaning validation (team members would have to confirm event changes or a new event)

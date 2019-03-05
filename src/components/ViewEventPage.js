@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import CommentsList from './CommentsList'
 import moment from 'moment'
-import { removeEvent } from '../actions/events'
+import { startRemoveEvent } from '../actions/events'
 import CommentAddForm from './CommentAddForm'
 
 export class ViewEventPage extends React.Component {
@@ -17,7 +17,7 @@ export class ViewEventPage extends React.Component {
          eventDeletedNotification: this.props.notifications.afterDelete
       }))
       setTimeout(() => {
-         this.props.removeEvent(this.props.event.id)
+         this.props.startRemoveEvent(this.props.event.id)
          this.props.history.push('/')
       }, 2000);
    }
@@ -81,7 +81,7 @@ export class ViewEventPage extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch, props) => ({
-   removeEvent: (eventId) => { dispatch(removeEvent(eventId)) }
+   startRemoveEvent: (eventId) => { dispatch(startRemoveEvent(eventId)) }
 })
 
 const mapStateToProps = (state, props) => ({

@@ -2,12 +2,12 @@ import React from 'react'
 import AddEventForm from './AddEventForm'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { editEvent } from '../actions/events'
+import { startEditEvent } from '../actions/events'
 
 export class EditEventPage extends React.Component {
 
    handleSubmit = (event) => {
-      this.props.editEvent(this.props.event.id, event)
+      this.props.startEditEvent(this.props.event.id, event)
       this.props.history.push('/')
    }
 
@@ -51,7 +51,7 @@ export class EditEventPage extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-   editEvent: (id, event) => dispatch(editEvent(id, event))
+   startEditEvent: (id, event) => dispatch(startEditEvent(id, event))
 })
 
 const mapStateToProps = (state, props) => ({
