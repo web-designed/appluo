@@ -9,7 +9,7 @@ export class CommentAddForm extends React.Component {
    state = {
       error: '',
       commentBody: '',
-      commenter: 'kylu'
+      commenter: 'visitor'
    }
 
    onCommentBodyChange = (e) => {
